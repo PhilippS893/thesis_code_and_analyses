@@ -1,3 +1,4 @@
+program: hp_exploration.py
 name: exploration-sweep
 entity: philis893
 project: thesis
