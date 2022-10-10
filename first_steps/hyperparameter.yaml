@@ -1,0 +1,8 @@
+name: motor-classifier
+entity: philis893
+project: thesis
+kernel_size: 5
+batch_size: 4
+dropout: .5
+learning_rate: 0.00001
+epochs: 60
