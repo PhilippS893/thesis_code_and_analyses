@@ -1,5 +1,3 @@
-entity: philis893
-project: thesis
 kernel_size: 7
 batch_size: 4
 dropout: .5
