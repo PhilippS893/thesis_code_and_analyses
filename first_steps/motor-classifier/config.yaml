@@ -1,0 +1,26 @@
+channels:
+- 1
+- 8
+- 16
+- 32
+- 64
+dropout: 0.5
+input_dims: !!python/tuple
+- 91
+- 109
+- 91
+kernel_size:
+- 5
+- 5
+- 5
+- 5
+last_cnn_dims:
+- 5
+- 6
+- 5
+lin_neurons:
+- 128
+- 64
+n_classes: 5
+pooling_kernel: 2
+train_fn: !!python/name:delphi.utils.train_fns.standard_train ''
