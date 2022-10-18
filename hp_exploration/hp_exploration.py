@@ -87,7 +87,7 @@ def train_net(model, config, save_name, logwandb=True):
         wandb.log({
             "train_acc": tacc, "train_loss": tloss,
             "valid_acc": vacc, "valid_loss": vloss
-        })
+        }, step=epoch)
 
         print('Epoch=%03d, train_loss=%2.3f, train_acc=%1.3f, valid_loss=%2.3f, valid_acc=%1.3f' %
               (epoch, tloss, tacc, vloss, vacc))
@@ -126,7 +126,7 @@ def train_net(model, config, save_name, logwandb=True):
     testacc = compute_accuracy(teststats[:, -2], teststats[:, -1])
     wandb.run.summary["test_accuracy"] = testacc
 
-    wandb.log({"test_accuraccy": testacc, "test_loss": testloss})
+    wandb.log({"test_accuracy": testacc, "test_loss": testloss})
     wandb_plots(teststats[:, -2], teststats[:, -1], teststats[:, :-2], class_labels, "test")
 
     wandb.finish()

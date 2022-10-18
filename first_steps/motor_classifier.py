@@ -58,7 +58,7 @@ def reset_wandb_env():
 # set the wandb sweep config
 # os.environ['WANDB_MODE'] = 'offline'
 
-def main():
+def main(num_folds=10, shuffle_labels=False):
     class_labels = sorted(["handleft", "handright", "footleft", "footright", "tongue"])
     print(class_labels)
 
@@ -66,17 +66,18 @@ def main():
 
     # we will split the train dataset into a train (80%) and validation (20%) set.
     data_train_full = NiftiDataset("../t-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor(),
-                                   shuffle_labels=False)
+                                   shuffle_labels=shuffle_labels)
 
     # hp = read_config("hyperparameter.yaml")
     hp = read_config("hyperparameter.yaml")
 
-    num_folds = 10
-    run = 0
     input_dims = (91, 109, 91)
 
     # we want one stratified shuffled split
     sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=0.2, random_state=2020)
+
+    job_type_name = "CV-motor-shuffled" if shuffle_labels else "CV-motor"
+    run_name_prefix = "motor-classifier-shuffled" if shuffle_labels else "motor-classifier"
 
     for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
         reset_wandb_env()
@@ -84,8 +85,8 @@ def main():
             "entity": "philis893",
             "project": "thesis",
             "group": "first-steps-motor",
-            "name": f"motor-classifier_fold-{fold:02d}",
-            "job_type": "CV-motor" if num_folds > 1 else "train",
+            "name": f"{run_name_prefix}_fold-{fold:02d}",
+            "job_type": job_type_name if num_folds > 1 else "train",
         }
 
         save_name = os.path.join("models", wandb_kwargs["name"])
@@ -95,7 +96,7 @@ def main():
         data_train = torch.utils.data.Subset(data_train_full, idx_train)
         data_valid = torch.utils.data.Subset(data_train_full, idx_valid)
 
-        g = set_random_seed(2020 + fold + run)
+        g = set_random_seed(2020 + fold)
 
         with wandb.init(config=hp, **wandb_kwargs) as run:
 
@@ -183,4 +184,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(num_folds=10, shuffle_labels=True)
