@@ -1,0 +1,12 @@
+kernel_size: 3
+batch_size: 4
+dropout: .7
+channels1: 1
+channels2: 8
+channels3: 16
+channels4: 32
+channels5: 64
+lin_neurons1: 256
+lin_neurons2: 256
+learning_rate: 0.0001
+epochs: 60
