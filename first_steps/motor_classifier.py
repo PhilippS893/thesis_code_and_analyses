@@ -1,19 +1,15 @@
 import os
-import wandb
-import torch
-import pandas as pd
+
 import numpy as np
-import time
-from delphi import mni_template
-from glob import glob
-from torch.utils.data import DataLoader
-from torchinfo import summary
+import pandas as pd
+import torch
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
-from delphi.utils.tools import ToTensor, compute_accuracy, convert_wandb_config, read_config, z_transform_volume
-from delphi.utils.plots import confusion_matrix
-
+from delphi.utils.tools import ToTensor, compute_accuracy, read_config
 from sklearn.model_selection import StratifiedShuffleSplit
+from torch.utils.data import DataLoader
+
+import wandb
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -184,4 +180,5 @@ def main(num_folds=10, shuffle_labels=False):
 
 
 if __name__ == '__main__':
+    main(num_folds=10, shuffle_labels=False)
     main(num_folds=10, shuffle_labels=True)

@@ -1,0 +1,34 @@
+program: train_source_networks.py
+name: source-nets-sweep
+entity: philis893
+project: thesis
+method: grid
+metric:
+  name: valid_acc
+parameters:
+  channels1:
+    value: 1
+  channels2:
+    value: 8
+  channels3:
+    value: 16
+  channels4:
+    value: 32
+  channels5:
+    value: 64
+  kernel_size:
+    value: 3
+  lin_neurons1:
+    value: 256
+  lin_neurons2:
+    value: 256
+  batch_size:
+    value: 4
+  dropout:
+    value: .7
+  learning_rate:
+    value: 0.0001
+  epochs:
+    value: 60
+  left_out_task:
+    values: [MOTOR, WM, RELATIONAL, SOCIAL, LANGUAGE, GAMBLING, EMOTION]
