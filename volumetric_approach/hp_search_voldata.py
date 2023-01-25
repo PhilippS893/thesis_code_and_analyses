@@ -1,39 +1,21 @@
+import os
+import time
+
+import pandas as pd
+import torch
+import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
+from delphi.utils.tools import convert_wandb_config, ToTensor, compute_accuracy
 from torch.utils.data import DataLoader
-from delphi.utils.tools import convert_wandb_config, ToTensor, compute_accuracy, read_config
-import wandb
-import os
-import torch
-import numpy as np
-import time
-import pandas as pd
+
+from utils.random import set_random_seed
+from utils.wandb_funcs import wandb_plots
 
 # SET SOME WANDB THINGS
 # os.environ['WANDB_MODE'] = 'offline'
 os.environ['WANDB_ENTITY'] = "philis893"  # this is my wandb account name. This can also be a group name, for example
 os.environ['WANDB_PROJECT'] = "thesis"
-
-
-def set_random_seed(seed):
-    import random
-    torch.backends.cudnn.benchmark = False
-    torch.manual_seed(seed)
-    random.seed(seed)
-    np.random.seed(seed)
-    g = torch.Generator()  # can be used in pytorch dataloaders for reproducible sample selection when shuffle=True
-    g.manual_seed(seed)
-
-    return g
-
-
-def wandb_plots(y_true, y_pred, y_prob, class_labels, dataset):
-    wandb.log({
-        f"{dataset}-ROC": wandb.plot.roc_curve(y_true=y_true, y_probas=y_prob, labels=class_labels),
-        f"{dataset}-PR": wandb.plot.pr_curve(y_true=y_true, y_probas=y_prob, labels=class_labels),
-        f"{dataset}-ConfMat": wandb.plot.confusion_matrix(y_true=y_true, preds=y_pred, class_names=class_labels)
-    })
-
 
 g = set_random_seed(2020)
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

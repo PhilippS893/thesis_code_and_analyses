@@ -1,15 +1,16 @@
 import os
 
-import numpy as np
 import pandas as pd
 import torch
+import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
 from delphi.utils.tools import ToTensor, compute_accuracy, convert_wandb_config
 from sklearn.model_selection import StratifiedShuffleSplit
 from torch.utils.data import DataLoader
 
-import wandb
+from utils.random import set_random_seed
+from utils.wandb_funcs import wandb_plots
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -25,28 +26,7 @@ classes_of_ds = {
     'LANGUAGE': ['story', 'math'],
 }
 
-
-def set_random_seed(seed):
-    import random
-    torch.backends.cudnn.benchmark = False
-    torch.manual_seed(seed)
-    random.seed(seed)
-    np.random.seed(seed)
-    g = torch.Generator()  # can be used in pytorch dataloaders for reproducible sample selection when shuffle=True
-    g.manual_seed(seed)
-
-    return g
-
-
 g = set_random_seed(2020)
-
-
-def wandb_plots(y_true, y_pred, y_prob, class_labels, dataset):
-    wandb.log({
-        f"{dataset}-ROC": wandb.plot.roc_curve(y_true=y_true, y_probas=y_prob, labels=class_labels),
-        f"{dataset}-PR": wandb.plot.pr_curve(y_true=y_true, y_probas=y_prob, labels=class_labels, ),
-        f"{dataset}-ConfMat": wandb.plot.confusion_matrix(y_true=y_true, preds=y_pred, class_names=class_labels)
-    })
 
 
 def train_net(model, config, save_name, data_train, data_valid, data_test, logwandb=True):
@@ -132,7 +112,6 @@ def train_net(model, config, save_name, data_train, data_valid, data_test, logwa
 def main():
     # here we initialize weights&biases.
     with wandb.init() as run:
-
         tmp = [value for key, value in classes_of_ds.items() if key not in {run.config.left_out_task}]
         class_labels = [j for val in tmp for j in val]
 

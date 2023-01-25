@@ -1,6 +1,5 @@
 import os
 
-import numpy as np
 import pandas as pd
 import torch
 from delphi.networks.ConvNets import BrainStateClassifier3d
@@ -10,45 +9,12 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from torch.utils.data import DataLoader
 
 import wandb
+from utils.random import set_random_seed
+from utils.wandb_funcs import wandb_plots, reset_wandb_env
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-
-def set_random_seed(seed):
-    import random
-    torch.backends.cudnn.benchmark = False
-    torch.manual_seed(seed)
-    random.seed(seed)
-    np.random.seed(seed)
-    g = torch.Generator()  # can be used in pytorch dataloaders for reproducible sample selection when shuffle=True
-    g.manual_seed(seed)
-
-    return g
-
-
 g = set_random_seed(2020)
-
-
-def wandb_plots(y_true, y_pred, y_prob, class_labels, dataset):
-    wandb.log({
-        f"{dataset}-ROC": wandb.plot.roc_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                               title=f"{dataset}-ROC"),
-        f"{dataset}-PR": wandb.plot.pr_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                             title=f"{dataset}-PR"),
-        f"{dataset}-ConfMat": wandb.plot.confusion_matrix(y_true=y_true, preds=y_pred, class_names=class_labels,
-                                                          title=f"{dataset}-ConfMat")
-    })
-
-
-def reset_wandb_env():
-    exclude = {
-        "WANDB_PROJECT",
-        "WANDB_ENTITY",
-        "WANDB_API_KEY",
-    }
-    for k, v in os.environ.items():
-        if k.startswith("WANDB_") and k not in exclude:
-            del os.environ[k]
 
 
 # set the wandb sweep config
@@ -180,5 +146,5 @@ def main(num_folds=10, shuffle_labels=False):
 
 
 if __name__ == '__main__':
-    main(num_folds=10, shuffle_labels=False)
+    #main(num_folds=10, shuffle_labels=False)
     main(num_folds=10, shuffle_labels=True)
