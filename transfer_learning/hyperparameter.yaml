@@ -1,8 +1,8 @@
 kernel_size: 3
-batch_size: 4
-dropout: .7
-learning_rate: 0.0001
+batch_size: 32
+dropout: .4
+learning_rate: 0.001
 epochs: 60
 channels: [1, 8, 16, 32, 64]
-lin_neurons: [256, 256]
+lin_neurons: [128, 64]
 pooling_kernel: 2
