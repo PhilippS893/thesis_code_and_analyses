@@ -1,4 +1,4 @@
-kernel_size: 7
+kernel_size: 5
 batch_size: 4
 dropout: .5
 learning_rate: 0.00001
