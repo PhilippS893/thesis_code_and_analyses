@@ -174,5 +174,63 @@ def main():
         train_net(model, wandb.config, save_name, data_train, data_valid, data_test)
 
 
+
+def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentParser:
+    if parser is None:
+        parser = argparse.ArgumentParser(
+            description='test parser',
+        )
+
+    parser.add_argument(
+        '--task',
+        metavar='TASK',
+        default='MOTOR',
+        type=str,
+        help='name of task (default: MOTOR)'
+    )
+
+    parser.add_argument(
+        '--sample_size',
+        metavar='INT',
+        default='0',
+        type=int,
+        help='number of samples to consider (default: 0; all samples in directory)'
+    )
+
+    parser.add_argument(
+        '--hyperparameter',
+        metavar='.yaml',
+        default='hyperparameter.yaml',
+        type=str,
+        help='a path to a .yaml file containing hyperparameter configs (default: hyperparameter.yaml)'
+    )
+
+    parser.add_argument(
+        '--transfer_learning',
+        metavar='BOOLEAN',
+        default=False,
+        type=bool,
+        help="check if transfer learning is supposed to be used (default: False)"
+    )
+
+    parser.add_argument(
+        '--seed',
+        metavar='INT',
+        default=2020,
+        type=int,
+        help="set a random seed for reproducibility (default: 2020)"
+    )
+
+    parser.add_argument(
+        '--input_dims',
+        metavar='TUPLE',
+        default=(91, 109, 91),
+        type=tuple,
+        help="a tuple indicating the dimensions of your input data (default: (91, 109, 91); the MNI brain dimensions)"
+    )
+
+    return parser
+
+
 if __name__ == '__main__':
     main()

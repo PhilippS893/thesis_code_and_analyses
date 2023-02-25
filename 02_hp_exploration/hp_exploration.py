@@ -1,46 +1,25 @@
 import os
-import time
 
-import numpy as np
 import pandas as pd
 import torch
+import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
 from delphi.utils.tools import ToTensor, compute_accuracy, convert_wandb_config
 from sklearn.model_selection import StratifiedShuffleSplit
 from torch.utils.data import DataLoader
 
-import wandb
+from utils.random import set_random_seed
+from utils.wandb_funcs import wandb_plots
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-
-def set_random_seed(seed):
-    import random
-    torch.backends.cudnn.benchmark = False
-    torch.manual_seed(seed)
-    random.seed(seed)
-    np.random.seed(seed)
-    g = torch.Generator()  # can be used in pytorch dataloaders for reproducible sample selection when shuffle=True
-    g.manual_seed(seed)
-
-    return g
-
-
-def wandb_plots(y_true, y_pred, y_prob, class_labels, dataset):
-    wandb.log({
-        f"{dataset}-ROC": wandb.plot.roc_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                               title=f"{dataset}-ROC"),
-        f"{dataset}-PR": wandb.plot.pr_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                             title=f"{dataset}-PR"),
-        f"{dataset}-ConfMat": wandb.plot.confusion_matrix(y_true=y_true, preds=y_pred, class_names=class_labels,
-                                                          title=f"{dataset}-ConfMat")
-    })
-
-
 g = set_random_seed(2020)
 
-class_labels = sorted(["handleft", "handright", "footleft", "footright", "tongue"])
+class_labels = ["handleft", "handright", "footleft", "footright", "tongue",
+                "reward", "loss", "mental", "random", "body", "face", "place", "tool",
+                "match", "relation", "emotion", "neut", "story", "math"]
+
 
 data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
 
@@ -48,6 +27,8 @@ data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE, trans
 data_train_full = NiftiDataset("../t-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor())
 
 # we want one stratified shuffled split
+# doing it this way should ensure, that we train each run with the same
+# data in the training and validation set.
 sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=2020)
 idx_train, idx_valid = next(sss.split(data_train_full.data, data_train_full.labels))
 
@@ -55,7 +36,8 @@ data_train = torch.utils.data.Subset(data_train_full, idx_train)
 data_valid = torch.utils.data.Subset(data_train_full, idx_valid)
 
 
-def train_net(model, config, save_name, logwandb=True):
+def train_net(model, config, save_name):
+
     dl_test = DataLoader(data_test, batch_size=config.batch_size, shuffle=True, generator=g)
     dl_train = DataLoader(data_train, batch_size=config.batch_size, shuffle=True, generator=g)
     dl_valid = DataLoader(data_valid, batch_size=config.batch_size, shuffle=True, generator=g)
@@ -68,7 +50,7 @@ def train_net(model, config, save_name, logwandb=True):
 
     # loop for the above set number of epochs
     for epoch in range(0, config.epochs):
-        _, _ = model.fit(dl_train, lr=config.learning_rate, device=DEVICE)
+        _, _ = model.fit(dl_train, lr=config.learning_rate, device=DEVICE, **{'weight_decay': config.weight_decay})
 
         # for validating or testing set the network into evaluation mode such that layers like dropout are not active
         with torch.no_grad():
@@ -104,7 +86,7 @@ def train_net(model, config, save_name, logwandb=True):
             # plot some graphs for the validation data
             wandb_plots(vstats[:, -2], vstats[:, -1], vstats[:, :-2], class_labels, "valid")
 
-            # reset the patience counter
+            # since a new best model exists reset the patience counter
             patience_ctr = 0
 
         else:
@@ -122,10 +104,18 @@ def train_net(model, config, save_name, logwandb=True):
     full_df = pd.concat(valid_stats)
     full_df.to_csv(os.path.join(save_name, "valid_stats.csv"), index=False)
 
+    # load the best performing state_dict!
+    model = BrainStateClassifier3d(save_name)
+    model.to(DEVICE)
+
     # EVALUATE THE MODEL ON THE TEST DATA
     with torch.no_grad():
         testloss, teststats = model.fit(dl_test, train=False)
     testacc = compute_accuracy(teststats[:, -2], teststats[:, -1])
+
+    df_test = pd.DataFrame(teststats.tolist(), columns=[*class_labels, *["real", "predicted"]])
+    df_test.to_csv(os.path.join(save_name, "test_stats.csv"), index=False)
+
     wandb.run.summary["test_accuracy"] = testacc
 
     wandb.log({"test_accuracy": testacc, "test_loss": testloss})
@@ -136,25 +126,30 @@ def train_net(model, config, save_name, logwandb=True):
 
 # define the training function with the wandb init
 def main():
-    # here we initialize weights&biases.
-    with wandb.init() as run:
-        # here's the promised conversion of the wandb.config
-        # this results into a dict that contains key-value pairs that we can use to configure our network:
-        # converted_config['lin_neurons'] = [512, 8, 128]
+    with wandb.init(group="hp-optimization", job_type="hcp-explo") as run:
 
         converted_config = convert_wandb_config(wandb.config, BrainStateClassifier3d._REQUIRED_PARAMS)
 
         model = BrainStateClassifier3d((91, 109, 91), len(class_labels), converted_config)
         model.to(DEVICE)
 
-        # We do not necessarily need this line but it is nice to update the config.
-        # wandb.config.update(model.config, allow_val_change=True)
+        model.config["class_labels"] = class_labels
 
-        t_stamp = time.time()
-        save_name = os.path.join("models", f"motor-explo_{t_stamp}")
-        wandb.run.name = f"motor-explo-{t_stamp}"
+        # We do not necessarily need this line, but it is nice to update the config.
+        wandb.config.update(model.config, allow_val_change=True)
 
-        # now train the netwok, yay!
+        run_name = 'batchsize-{}_kernelsize-{}_lr-{}_dropout-{}_weightdecay-{}'.format(
+            run.config.batch_size,
+            run.config.kernel_size,
+            run.config.learning_rate,
+            run.config.dropout,
+            run.config.weight_decay
+        )
+
+        save_name = os.path.join("models", run_name)
+        wandb.run.name = run_name
+
+        # now train the netwok
         train_net(model, wandb.config, save_name)
 
 

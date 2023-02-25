@@ -3,13 +3,12 @@ import os
 import numpy as np
 import pandas as pd
 import torch
+import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
-from delphi.utils.tools import ToTensor, compute_accuracy, read_config
+from delphi.utils.tools import ToTensor, compute_accuracy, read_config, convert_wandb_config
 from sklearn.model_selection import StratifiedShuffleSplit
 from torch.utils.data import DataLoader
-
-import wandb
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -55,34 +54,34 @@ def reset_wandb_env():
 # os.environ['WANDB_MODE'] = 'offline'
 
 def main(num_folds=10, shuffle_labels=False):
-    class_labels = sorted(["handleft", "handright", "footleft", "footright", "tongue"])
+    class_labels = sorted(["match", "relation", "rest_RELATIONAL"])
     print(class_labels)
 
-    data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
+    data_test = NiftiDataset("../v-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
 
     # we will split the train dataset into a train (80%) and validation (20%) set.
-    data_train_full = NiftiDataset("../t-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor(),
+    data_train_full = NiftiDataset("../v-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor(),
                                    shuffle_labels=shuffle_labels)
 
-    # hp = read_config("hyperparameter.yaml")
-    hp = read_config("hyperparameter.yaml")
+    hp = read_config("best_hps.yaml")
 
     input_dims = (91, 109, 91)
 
     # we want one stratified shuffled split
     sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=0.2, random_state=2020)
 
-    job_type_name = "CV-motor-shuffled" if shuffle_labels else "CV-motor"
-    run_name_prefix = "motor-classifier-shuffled" if shuffle_labels else "motor-classifier"
+    job_type_name = "CV-vol-relational-shuffled" if shuffle_labels else "CV-vol-relational-withrest"
+    run_name_prefix = "vol-wm-relational-shuffled" if shuffle_labels else "vol-relational-classifier-withrest"
 
     for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
         reset_wandb_env()
         wandb_kwargs = {
             "entity": "philis893",
             "project": "thesis",
-            "group": "first-steps-motor",
+            "group": "volumes-few-samples",
             "name": f"{run_name_prefix}_fold-{fold:02d}",
             "job_type": job_type_name if num_folds > 1 else "train",
+            "allow_val_change": True,
         }
 
         save_name = os.path.join("models", wandb_kwargs["name"])
@@ -96,15 +95,15 @@ def main(num_folds=10, shuffle_labels=False):
 
         with wandb.init(config=hp, **wandb_kwargs) as run:
 
-            model_cfg = {
-                "channels": [1, 8, 16, 32, 64],
-                "lin_neurons": [128, 64],
-                "pooling_kernel": 2,
-                "kernel_size": run.config.kernel_size,
-                "dropout": run.config.dropout,
+            extra_cfg = {
+                "class_labels": class_labels,
             }
+            run.config.update(extra_cfg, allow_val_change=True)
+            model_cfg = convert_wandb_config(run.config, BrainStateClassifier3d._REQUIRED_PARAMS)
             model = BrainStateClassifier3d(input_dims, len(class_labels), model_cfg)
             model.to(DEVICE);
+
+            run.config.update(model.config, allow_val_change=True)
 
             dl_train = DataLoader(data_train, batch_size=run.config.batch_size, shuffle=True, generator=g)
             dl_valid = DataLoader(data_valid, batch_size=run.config.batch_size, shuffle=True, generator=g)
@@ -180,5 +179,4 @@ def main(num_folds=10, shuffle_labels=False):
 
 
 if __name__ == '__main__':
-    # main(num_folds=10, shuffle_labels=False)
-    main(num_folds=10, shuffle_labels=True)
+    main(num_folds=10, shuffle_labels=False)

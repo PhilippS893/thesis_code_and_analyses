@@ -2,7 +2,6 @@ import argparse
 import os
 
 import delphi.utils.tools as tools
-import numpy as np
 import pandas as pd
 import torch
 import wandb
@@ -10,6 +9,9 @@ from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
 from sklearn.model_selection import StratifiedShuffleSplit
 from torch.utils.data import DataLoader
+
+from utils.random import set_random_seed
+from utils.wandb_funcs import wandb_plots
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -26,94 +28,42 @@ classes_of_ds = {
 }
 
 
-def wandb_plots(y_true, y_pred, y_prob, class_labels, dataset):
-    r"""
-    Function to plot receiver-operating-characteristics, precision-recall curves, and confusion matrices
-    in the w&b online platform.
-
-    Parameters
-    ----------
-    y_true: list of true labels
-    y_pred: list of predicted labels
-    y_prob: probability values of the network prediction
-    class_labels: the names of the classes to predict
-    dataset: string; name of the current dataset
-    """
-    wandb.log({
-        f"{dataset}-ROC": wandb.plot.roc_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                               title=f"{dataset}-ROC"),
-        f"{dataset}-PR": wandb.plot.pr_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                             title=f"{dataset}-PR"),
-        f"{dataset}-ConfMat": wandb.plot.confusion_matrix(y_true=y_true, preds=y_pred, class_names=class_labels,
-                                                          title=f"{dataset}-ConfMat")
-    })
-
-
-def set_random_seed(seed):
-    import random
-    torch.backends.cudnn.benchmark = False
-    torch.manual_seed(seed)
-    random.seed(seed)
-    np.random.seed(seed)
-    g = torch.Generator()  # can be used in pytorch dataloaders for reproducible sample selection when shuffle=True
-    g.manual_seed(seed)
-
-    return g
-
-
-def reset_wandb_env():
-    exclude = {
-        "WANDB_PROJECT",
-        "WANDB_ENTITY",
-        "WANDB_API_KEY",
-    }
-    for k, v in os.environ.items():
-        if k.startswith("WANDB_") and k not in exclude:
-            del os.environ[k]
-
-
 def train_network(config=None, num_folds=10) -> None:
     if config is None:
         config = vars(get_argparse().parse_args())
 
-    if config["transfer_learning"]:
-        path_to_pretrained = os.path.join("models", f"hcp-without-{config['task']}")
-        hps = tools.read_config(os.path.join(path_to_pretrained, "config.yaml"))
-    else:
-        hps = tools.read_config(config["hyperparameter"])
-    class_labels = classes_of_ds[config["task"]]
+    hps = tools.read_config(config["hyperparameter"])
+    tmp = [value for key, value in classes_of_ds.items() if key not in {config["left_out_task"]}]
+    class_labels = [j for val in tmp for j in val]
 
-    # we will split the train dataset into a train (80%) and validation (20%) set.
     data_train_full = NiftiDataset("../t-maps/train", class_labels, 0, device=DEVICE,
                                    transform=tools.ToTensor())
 
     data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE, transform=tools.ToTensor())
 
     # we want a stratified shuffled split
-    if config["sample_size"] == 0:
-        sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=20*len(class_labels), random_state=2020)
-    else:
-        sss = StratifiedShuffleSplit(n_splits=num_folds, train_size=config["sample_size"]*len(class_labels),
-                                     test_size=20*len(class_labels), random_state=2020)
+    # we set the train size here fix to 120 subjects for training and 20 for validation
+    sss = StratifiedShuffleSplit(n_splits=num_folds, train_size=120 * len(class_labels),
+                                 test_size=20 * len(class_labels), random_state=config["seed"])
 
     for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
 
         this_seed = config["seed"] + fold
         g = set_random_seed(this_seed)
 
-        job_type = "pretrained" if config["transfer_learning"] else "from-scratch"
-        run_name = f"{job_type}_{config['task'].lower()}_samplesize-{config['sample_size']}"
+        job_type = config["job_type"]
+        run_name = f"hcp-without-{config['left_out_task'].lower()}"
 
         wandb_kwargs = {
             "entity": "philis893",
             "project": "thesis",
-            "group": "transfer-learning",
+            "group": config["wandb_group"],  # "transfer-learning-diffparams"
             "name": f"seed-{config['seed']}_fold-{fold:02d}",
             "job_type": run_name,
             "allow_val_change": True,
         }
 
-        save_name = os.path.join("models", f"{run_name}_seed-{config['seed']}_fold-{fold:02d}")
+        save_name = os.path.join("models", job_type, f"{run_name}_seed-{config['seed']}_fold-{fold:02d}")
         if os.path.exists(save_name):
             continue
 
@@ -124,17 +74,10 @@ def train_network(config=None, num_folds=10) -> None:
         # all settings and changes will be reset at the beginning of the fold-loop. (see line 11)
         with wandb.init(config=hps, **wandb_kwargs) as run:
 
-            if config["transfer_learning"]:
-                model = BrainStateClassifier3d(path_to_pretrained)
-                model.out = torch.nn.Linear(model.out.in_features, out_features=len(class_labels))
-                model.config["n_classes"] = len(class_labels)
-                model.config["classes"] = class_labels
-                del model.config["left_out_task"]
-            else:
-                # please note that this conversion is unnecessary if not using w&b!
-                model_cfg = tools.convert_wandb_config(run.config, BrainStateClassifier3d._REQUIRED_PARAMS)
-                # setup a model with the parameters given in model_cfg
-                model = BrainStateClassifier3d(config["input_dims"], len(class_labels), model_cfg)
+            model_cfg = tools.convert_wandb_config(run.config, BrainStateClassifier3d._REQUIRED_PARAMS)
+            # setup a model with the parameters given in model_cfg
+            model = BrainStateClassifier3d(config["input_dims"], len(class_labels), model_cfg)
+            model.config["class_labels"] = class_labels
 
             run.config.update(config, allow_val_change=True)
             run.config.update(model.config, allow_val_change=True)
@@ -152,7 +95,8 @@ def train_network(config=None, num_folds=10) -> None:
 
             # loop for the above set number of epochs
             for epoch in range(run.config.epochs):
-                _, _ = model.fit(dl_train, lr=run.config.learning_rate, device=DEVICE, **{"weight_decay": 0.0001})
+                _, _ = model.fit(dl_train, lr=run.config.learning_rate, device=DEVICE,
+                                 **{"weight_decay": run.config.weight_decay})
 
                 # for validating or testing set the network into evaluation mode such
                 # that layers like dropout are not active
@@ -203,9 +147,17 @@ def train_network(config=None, num_folds=10) -> None:
             full_df = pd.concat(valid_stats)
             full_df.to_csv(os.path.join(save_name, "valid_stats.csv"), index=False)
 
+            # load the best performing model
+            model = BrainStateClassifier3d(save_name)
+            model.to(DEVICE)
+
             # EVALUATE THE MODEL ON THE TEST DATA
             with torch.no_grad():
                 testloss, teststats = model.fit(dl_test, train=False)
+
+            df_test = pd.DataFrame(teststats.tolist(), columns=[*class_labels, *["real", "predicted"]])
+            df_test.to_csv(os.path.join(save_name, "test_stats.csv"), index=False)
+
             testacc = tools.compute_accuracy(teststats[:, -2], teststats[:, -1])
             wandb.run.summary["test_accuracy"] = testacc
 
@@ -222,19 +174,11 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
         )
 
     parser.add_argument(
-        '--task',
+        '--left_out_task',
         metavar='TASK',
         default='MOTOR',
         type=str,
         help='name of task (default: MOTOR)'
-    )
-
-    parser.add_argument(
-        '--sample_size',
-        metavar='INT',
-        default='0',
-        type=int,
-        help='number of samples to consider (default: 0; all samples in directory)'
     )
 
     parser.add_argument(
@@ -243,14 +187,6 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
         default='hyperparameter.yaml',
         type=str,
         help='a path to a .yaml file containing hyperparameter configs (default: hyperparameter.yaml)'
-    )
-
-    parser.add_argument(
-        '--transfer_learning',
-        metavar='BOOLEAN',
-        default=False,
-        type=bool,
-        help="check if transfer learning is supposed to be used (default: False)"
     )
 
     parser.add_argument(
@@ -267,6 +203,22 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
         default=(91, 109, 91),
         type=tuple,
         help="a tuple indicating the dimensions of your input data (default: (91, 109, 91); the MNI brain dimensions)"
+    )
+
+    parser.add_argument(
+        '--job_type',
+        metavar='STR',
+        default="source-networks",
+        type=str,
+        help="the name of the job (important to group in wandb)"
+    )
+
+    parser.add_argument(
+        '--wandb_group',
+        metavar='STR',
+        default="transfer-learning",
+        type=str,
+        help="group name of the current runs. Important to group in wandb"
     )
 
     return parser

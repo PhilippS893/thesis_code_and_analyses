@@ -56,7 +56,7 @@ def main():
     class_labels = sorted(["handleft", "handright", "footleft", "footright", "tongue"])
     # initialize wandb
     wandb.init(entity=os.environ['WANDB_ENTITY'], project=os.environ['WANDB_PROJECT'],
-               group="volume-input", job_type="hp_exploration", allow_val_change=True)
+               group="volume-input", job_type="02_hp_exploration", allow_val_change=True)
     config = wandb.config
 
     t_stamp = time.time()

@@ -1,90 +1,57 @@
 import os
-import wandb
-import torch
+
 import pandas as pd
-import numpy as np
-from torch.utils.data import DataLoader
+import torch
+import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
-from delphi.utils.tools import ToTensor, compute_accuracy, read_config, convert_wandb_config
-
+from delphi.utils.tools import ToTensor, compute_accuracy, read_config
 from sklearn.model_selection import StratifiedShuffleSplit
+from torch.utils.data import DataLoader
+
+from utils.random import set_random_seed
+from utils.wandb_funcs import wandb_plots, reset_wandb_env
 
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-
-def set_random_seed(seed):
-    import random
-    torch.backends.cudnn.benchmark = False
-    torch.manual_seed(seed)
-    random.seed(seed)
-    np.random.seed(seed)
-    g = torch.Generator()  # can be used in pytorch dataloaders for reproducible sample selection when shuffle=True
-    g.manual_seed(seed)
-
-    return g
-
-
 g = set_random_seed(2020)
-
-
-def wandb_plots(y_true, y_pred, y_prob, class_labels, dataset):
-    wandb.log({
-        f"{dataset}-ROC": wandb.plot.roc_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                               title=f"{dataset}-ROC"),
-        f"{dataset}-PR": wandb.plot.pr_curve(y_true=y_true, y_probas=y_prob, labels=class_labels,
-                                             title=f"{dataset}-PR"),
-        f"{dataset}-ConfMat": wandb.plot.confusion_matrix(y_true=y_true, preds=y_pred, class_names=class_labels,
-                                                          title=f"{dataset}-ConfMat")
-    })
-
-
-def reset_wandb_env():
-    exclude = {
-        "WANDB_PROJECT",
-        "WANDB_ENTITY",
-        "WANDB_API_KEY",
-    }
-    for k, v in os.environ.items():
-        if k.startswith("WANDB_") and k not in exclude:
-            del os.environ[k]
-
 
 # set the wandb sweep config
 # os.environ['WANDB_MODE'] = 'offline'
+os.environ['WANDB_DIR'] = "/media/philippseidel/5tb/thesis_code_and_analyses/01_train_classifier"
 
 def main(num_folds=10, shuffle_labels=False):
-    class_labels = sorted(["match", "relation", "rest_RELATIONAL"])
+    class_labels = sorted(["handleft", "handright", "footleft", "footright", "tongue"])
     print(class_labels)
 
-    data_test = NiftiDataset("../v-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
+    data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
 
     # we will split the train dataset into a train (80%) and validation (20%) set.
-    data_train_full = NiftiDataset("../v-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor(),
+    data_train_full = NiftiDataset("../t-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor(),
                                    shuffle_labels=shuffle_labels)
 
-    hp = read_config("best_hps.yaml")
+    # hp = read_config("hyperparameter.yaml")
+    hp = read_config("hyperparameter.yaml")
 
     input_dims = (91, 109, 91)
 
     # we want one stratified shuffled split
     sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=0.2, random_state=2020)
 
-    job_type_name = "CV-vol-relational-shuffled" if shuffle_labels else "CV-vol-relational-withrest"
-    run_name_prefix = "vol-wm-relational-shuffled" if shuffle_labels else "vol-relational-classifier-withrest"
+    job_type_name = "motor-shuffled-500epochs" #"CV-motor-shuffled" if shuffle_labels else "CV-motor"
+    run_name_prefix = "motor-classifier-shuffled" if shuffle_labels else "motor-classifier"
 
     for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
         reset_wandb_env()
         wandb_kwargs = {
             "entity": "philis893",
             "project": "thesis",
-            "group": "volumes-few-samples",
-            "name": f"{run_name_prefix}_fold-{fold:02d}",
+            "group": "first-steps-motor",
+            "name": f"fold-{fold:02d}",
             "job_type": job_type_name if num_folds > 1 else "train",
-            "allow_val_change": True,
         }
 
-        save_name = os.path.join("models", wandb_kwargs["name"])
+        save_name = os.path.join("models", job_type_name, wandb_kwargs["name"])
         if os.path.exists(save_name):
             continue
 
@@ -95,15 +62,15 @@ def main(num_folds=10, shuffle_labels=False):
 
         with wandb.init(config=hp, **wandb_kwargs) as run:
 
-            extra_cfg = {
-                "class_labels": class_labels,
+            model_cfg = {
+                "channels": [1, 8, 16, 32, 64],
+                "lin_neurons": [128, 64],
+                "pooling_kernel": 2,
+                "kernel_size": run.config.kernel_size,
+                "dropout": run.config.dropout,
             }
-            run.config.update(extra_cfg, allow_val_change=True)
-            model_cfg = convert_wandb_config(run.config, BrainStateClassifier3d._REQUIRED_PARAMS)
             model = BrainStateClassifier3d(input_dims, len(class_labels), model_cfg)
             model.to(DEVICE);
-
-            run.config.update(model.config, allow_val_change=True)
 
             dl_train = DataLoader(data_train, batch_size=run.config.batch_size, shuffle=True, generator=g)
             dl_valid = DataLoader(data_valid, batch_size=run.config.batch_size, shuffle=True, generator=g)
@@ -166,9 +133,16 @@ def main(num_folds=10, shuffle_labels=False):
             full_df = pd.concat(valid_stats)
             full_df.to_csv(os.path.join(save_name, "valid_stats.csv"), index=False)
 
-            # EVALUATE THE MODEL ON THE TEST DATA
+            # load the best performing model
+            model = BrainStateClassifier3d(save_name)
+            model.to(DEVICE)
+
             with torch.no_grad():
                 testloss, teststats = model.fit(dl_test, train=False)
+
+            df_test = pd.DataFrame(teststats.tolist(), columns=[*class_labels, *["real", "predicted"]])
+            df_test.to_csv(os.path.join(save_name, "test_stats.csv"), index=False)
+
             testacc = compute_accuracy(teststats[:, -2], teststats[:, -1])
             wandb.run.summary["test_accuracy"] = testacc
 
@@ -179,4 +153,5 @@ def main(num_folds=10, shuffle_labels=False):
 
 
 if __name__ == '__main__':
-    main(num_folds=10, shuffle_labels=False)
+    # main(num_folds=10, shuffle_labels=False)
+    main(num_folds=10, shuffle_labels=True)

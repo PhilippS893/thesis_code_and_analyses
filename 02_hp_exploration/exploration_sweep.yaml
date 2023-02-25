@@ -1,33 +1,37 @@
 program: hp_exploration.py
-name: exploration-sweep
+name: hp-optimization-motor
+group: hp-optimizations
 entity: philis893
 project: thesis
-method: grid
+method: bayes
 metric:
   name: valid_acc
+  goal: maximize
 parameters:
   channels1:
     value: 1
   channels2:
-    value: 8
+    values: [8, 16]
   channels3:
-    value: 16
+    values: [8, 16, 32]
   channels4:
-    value: 32
+    values: [16, 32, 64]
   channels5:
-    value: 64
+    values: [16, 32, 64]
   kernel_size:
     values: [3, 5, 7]
   lin_neurons1:
-    value: 128
+    values: [128, 192]
   lin_neurons2:
-    value: 64
+    values: [64, 128]
   batch_size:
     values: [4, 8, 16, 32]
   dropout:
     values: [.3, .4, .5, .6, .7]
   learning_rate:
     values: [0.00001, 0.0001, 0.001]
+  weight_decay:
+    values: [0.0001, 0.001, 0.01, 0.1]
   epochs:
     value: 60
     
