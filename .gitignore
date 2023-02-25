@@ -9,3 +9,9 @@
 /04_transfer_learning/wandb/
 /05_volumetric_approach/models/
 /05_volumetric_approach/models/
+/01_train_classifier/lrp/
+/01_train_classifier/models/
+/01_train_classifier/lrp/
+/01_train_classifier/stat-maps/
+/02_hp_exploration/models/
+/05_volumetric_approach/models/
