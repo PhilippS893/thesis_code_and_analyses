@@ -1,0 +1,38 @@
+_wandb:
+  code_path: code/05_volumetric_approach/hp_search_voldata.py
+batch_size: 8
+channels:
+- 1
+- 8
+- 16
+- 32
+- 128
+channels1: 1
+channels2: 8
+channels3: 16
+channels4: 32
+channels5: 128
+dropout: 0.3
+epochs: 60
+input_dims: !!python/tuple
+- 91
+- 109
+- 91
+kernel_size:
+- 5
+- 5
+- 5
+- 5
+last_cnn_dims:
+- 5
+- 6
+- 5
+learning_rate: 1.0e-05
+lin_neurons:
+- 256
+- 256
+lin_neurons1: 256
+lin_neurons2: 256
+n_classes: 5
+pooling_kernel: 2
+train_fn: !!python/name:delphi.utils.train_fns.standard_train ''
