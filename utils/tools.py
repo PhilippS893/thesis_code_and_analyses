@@ -85,7 +85,8 @@ def compute_mi(
 
     allowed_contrasts = ["subattr-vs-subt", "attr-real-vs-shuffled",
                          "subattr-vs-grporig", "grpattr-vs-grporig",
-                         "subattr-vs-grpattr", "subt-vs-grpt"]
+                         "subattr-vs-grpattr", "subt-vs-grpt",
+                         "model-trained-vs-rnd"]
     assert contrast in allowed_contrasts, \
         f'value in contrast: {contrast} does not match one of {allowed_contrasts}'
 
@@ -116,7 +117,6 @@ def compute_mi(
             for _, lbl in enumerate(class_labels):
 
                 if "grporig" in contrast:
-                    print(f"Loading stat-maps/orig/{lbl}_z_score.nii.gz")
                     y = apply_mask(f"stat-maps/orig/{lbl}_z_score.nii.gz", msk)
 
                 for m, method in enumerate(attr_methods):
@@ -126,9 +126,6 @@ def compute_mi(
                         if contrast == allowed_contrasts[0]:
 
                             # 1. load the data of the respective fold
-                            print(
-                                f"Loading {method}/real/{task_label}_fold-{fold:02d}/{lbl}.nii.gz and" \
-                                f"../t-maps/test/{lbl}/sub*.nii.gz")
                             X = apply_mask(f"{method}/real/{task_label}_fold-{fold:02d}/{lbl}.nii.gz", msk)
                             y = apply_mask(glob(f"../t-maps/test/{lbl}/sub*.nii.gz"), msk)
 
@@ -142,10 +139,6 @@ def compute_mi(
                         elif contrast == allowed_contrasts[1]:
 
                             # 1. load the data of the respective fold
-                            print(
-                                f"Loading {method}/shuffled/{task_label}_fold-{fold:02d}/{lbl}.nii.gz" \
-                                f"and {method}/real/{task_label}_fold-{fold:02d}/{lbl}.nii.gz"
-                            )
                             X = apply_mask(f"{method}/shuffled/{task_label}_fold-{fold:02d}/{lbl}.nii.gz", msk)
                             y = apply_mask(f"{method}/real/{task_label}_fold-{fold:02d}/{lbl}.nii.gz", msk)
 
@@ -158,14 +151,12 @@ def compute_mi(
 
                         elif contrast == allowed_contrasts[2]:
 
-                            print(f"Loading {method}/real/{task_label}_fold-{fold:02d}/{lbl}.nii.gz")
                             X = apply_mask(f"{method}/real/{task_label}_fold-{fold:02d}/{lbl}.nii.gz", msk)
                             mi = mutual_info_regression(X=X.reshape(-1, 1), y=y,
                                                         discrete_features=False, random_state=seed)
 
                         elif contrast == allowed_contrasts[3]:
 
-                            print(f"Loading stat-maps/{method}/real/{task_label}_fold-{fold:02d}/{lbl}_z_score.nii.gz")
                             X = apply_mask(
                                 os.path.join(f"stat-maps/{method}/real/{task_label}_fold-{fold:02d}/{lbl}_z_score.nii.gz"),
                                 msk
