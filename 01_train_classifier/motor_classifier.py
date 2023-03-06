@@ -20,6 +20,7 @@ g = set_random_seed(2020)
 # os.environ['WANDB_MODE'] = 'offline'
 os.environ['WANDB_DIR'] = "/media/philippseidel/5tb/thesis_code_and_analyses/01_train_classifier"
 
+
 def main(num_folds=10, shuffle_labels=False):
     class_labels = sorted(["handleft", "handright", "footleft", "footright", "tongue"])
     print(class_labels)
@@ -38,7 +39,7 @@ def main(num_folds=10, shuffle_labels=False):
     # we want one stratified shuffled split
     sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=0.2, random_state=2020)
 
-    job_type_name = "motor-shuffled-500epochs" #"CV-motor-shuffled" if shuffle_labels else "CV-motor"
+    job_type_name = "motor-shuffled-500epochs"  # "CV-motor-shuffled" if shuffle_labels else "CV-motor"
     run_name_prefix = "motor-classifier-shuffled" if shuffle_labels else "motor-classifier"
 
     for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
