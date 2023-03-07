@@ -1,22 +1,22 @@
-,mean_diff,sem,t_df19,p,sidak_sig
-emotion.*scratch - motor.*pretrained - emotion.*pretrained - relational.*scratch,-0.5512463532366086,0.0194691603281562,-28.313822678803405,5.3087722459740466e-17,True
-emotion.*scratch - motor.*pretrained - gambling.*scratch - relational.*pretrained,0.14977230121233737,0.010369850453532113,14.443053145604706,1.0688211929686912e-11,True
-emotion.*scratch - motor.*pretrained - gambling.*pretrained - social.*scratch,0.3897259101255832,0.01709027072536439,22.80396351751026,2.895998298675434e-15,True
-emotion.*scratch - motor.*pretrained - language.*scratch - social.*pretrained,-0.09382289654538686,0.016275232902844362,-5.7647652175220045,1.484526026196344e-05,True
-emotion.*scratch - motor.*pretrained - language.*pretrained - wm.*scratch,-0.5946731451608208,0.023938752117635246,-24.841442955697588,5.99083442884749e-16,True
-emotion.*scratch - motor.*pretrained - motor.*scratch - wm.*pretrained,-0.2083330755419109,0.012246069767658413,-17.012239803835982,5.897459521791067e-13,True
-emotion.*pretrained - relational.*scratch - gambling.*scratch - relational.*pretrained,0.7010186544489461,0.017016254139161226,41.19700192039451,4.773300562039983e-20,True
-emotion.*pretrained - relational.*scratch - gambling.*pretrained - social.*scratch,0.9409722633621918,0.022442583552478575,41.927983075650396,3.429208699959935e-20,True
-emotion.*pretrained - relational.*scratch - language.*scratch - social.*pretrained,0.4574234566912218,0.025286504906974722,18.08962758491197,1.9590844994522413e-13,True
-emotion.*pretrained - relational.*scratch - language.*pretrained - wm.*scratch,-0.04342679192421227,0.032047115314790174,-1.3550920729570384,0.19128134784484382,False
-emotion.*pretrained - relational.*scratch - motor.*scratch - wm.*pretrained,0.3429132776946977,0.02167493736253306,15.820727504728662,2.1486526163415924e-12,True
-gambling.*scratch - relational.*pretrained - gambling.*pretrained - social.*scratch,0.2399536089132459,0.01900791328374491,12.623879609049364,1.0956061608770928e-10,True
-gambling.*scratch - relational.*pretrained - language.*scratch - social.*pretrained,-0.24359519775772426,0.01838792336266117,-13.247564336295463,4.7909931186398396e-11,True
-gambling.*scratch - relational.*pretrained - language.*pretrained - wm.*scratch,-0.7444454463731583,0.02371858823118344,-31.386583346238826,7.794842326964805e-18,True
-gambling.*scratch - relational.*pretrained - motor.*scratch - wm.*pretrained,-0.35810537675424825,0.013553503102686574,-26.421610268659222,1.9154224002999505e-16,True
-gambling.*pretrained - social.*scratch - language.*scratch - social.*pretrained,-0.48354880667097,0.01573847521437207,-30.723993276642364,1.1604546343251594e-17,True
-gambling.*pretrained - social.*scratch - language.*pretrained - wm.*scratch,-0.984399055286404,0.027070476796036073,-36.364304282610554,4.967328831900629e-19,True
-gambling.*pretrained - social.*scratch - motor.*scratch - wm.*pretrained,-0.5980589856674943,0.015463617901670926,-38.675230432515455,1.5638182970186839e-19,True
-language.*scratch - social.*pretrained - language.*pretrained - wm.*scratch,-0.500850248615434,0.021722777477898247,-23.056455332428005,2.3656745626849903e-15,True
-language.*scratch - social.*pretrained - motor.*scratch - wm.*pretrained,-0.11451017899652402,0.009907866633751502,-11.557501047343633,4.873902722011909e-10,True
-language.*pretrained - wm.*scratch - motor.*scratch - wm.*pretrained,0.38634006961891,0.02084314944058616,18.535589869476325,1.2628769843960985e-13,True
+,input1,input2,input3,input4,mean_diff,sem,t_df19,p,sidak_sig
+0,emotion_scratch,motor_pretrained,emotion_pretrained,relational_scratch,-0.5512463532366086,0.0194691603281562,-28.313822678803405,5.3087722459740466e-17,True
+1,emotion_scratch,motor_pretrained,gambling_scratch,relational_pretrained,0.14977230121233737,0.010369850453532113,14.443053145604706,1.0688211929686912e-11,True
+2,emotion_scratch,motor_pretrained,gambling_pretrained,social_scratch,0.3897259101255832,0.01709027072536439,22.80396351751026,2.895998298675434e-15,True
+3,emotion_scratch,motor_pretrained,language_scratch,social_pretrained,-0.09382289654538686,0.016275232902844362,-5.7647652175220045,1.484526026196344e-05,True
+4,emotion_scratch,motor_pretrained,language_pretrained,wm_scratch,-0.5946731451608208,0.023938752117635246,-24.841442955697588,5.99083442884749e-16,True
+5,emotion_scratch,motor_pretrained,motor_scratch,wm_pretrained,-0.2083330755419109,0.012246069767658413,-17.012239803835982,5.897459521791067e-13,True
+6,emotion_pretrained,relational_scratch,gambling_scratch,relational_pretrained,0.7010186544489461,0.017016254139161226,41.19700192039451,4.773300562039983e-20,True
+7,emotion_pretrained,relational_scratch,gambling_pretrained,social_scratch,0.9409722633621918,0.022442583552478575,41.927983075650396,3.429208699959935e-20,True
+8,emotion_pretrained,relational_scratch,language_scratch,social_pretrained,0.4574234566912218,0.025286504906974722,18.08962758491197,1.9590844994522413e-13,True
+9,emotion_pretrained,relational_scratch,language_pretrained,wm_scratch,-0.04342679192421227,0.032047115314790174,-1.3550920729570384,0.19128134784484382,False
+10,emotion_pretrained,relational_scratch,motor_scratch,wm_pretrained,0.3429132776946977,0.02167493736253306,15.820727504728662,2.1486526163415924e-12,True
+11,gambling_scratch,relational_pretrained,gambling_pretrained,social_scratch,0.2399536089132459,0.01900791328374491,12.623879609049364,1.0956061608770928e-10,True
+12,gambling_scratch,relational_pretrained,language_scratch,social_pretrained,-0.24359519775772426,0.01838792336266117,-13.247564336295463,4.7909931186398396e-11,True
+13,gambling_scratch,relational_pretrained,language_pretrained,wm_scratch,-0.7444454463731583,0.02371858823118344,-31.386583346238826,7.794842326964805e-18,True
+14,gambling_scratch,relational_pretrained,motor_scratch,wm_pretrained,-0.35810537675424825,0.013553503102686574,-26.421610268659222,1.9154224002999505e-16,True
+15,gambling_pretrained,social_scratch,language_scratch,social_pretrained,-0.48354880667097,0.01573847521437207,-30.723993276642364,1.1604546343251594e-17,True
+16,gambling_pretrained,social_scratch,language_pretrained,wm_scratch,-0.984399055286404,0.027070476796036073,-36.364304282610554,4.967328831900629e-19,True
+17,gambling_pretrained,social_scratch,motor_scratch,wm_pretrained,-0.5980589856674943,0.015463617901670926,-38.675230432515455,1.5638182970186839e-19,True
+18,language_scratch,social_pretrained,language_pretrained,wm_scratch,-0.500850248615434,0.021722777477898247,-23.056455332428005,2.3656745626849903e-15,True
+19,language_scratch,social_pretrained,motor_scratch,wm_pretrained,-0.11451017899652402,0.009907866633751502,-11.557501047343633,4.873902722011909e-10,True
+20,language_pretrained,wm_scratch,motor_scratch,wm_pretrained,0.38634006961891,0.02084314944058616,18.535589869476325,1.2628769843960985e-13,True

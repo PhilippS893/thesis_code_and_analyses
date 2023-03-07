@@ -52,7 +52,7 @@ def attribute_with_method(attributor_method, model, data, target):
 
         with attributor_method.context(model) as modified_model:
             output = modified_model(data)
-            attribution, = torch.autograd.grad(output, data, grad_outputs=grad_dummy)
+            attribution, = torch.autograd.grad(output.squeeze(), data, grad_outputs=grad_dummy)
 
     elif attributor_name == 'GuidedBackprop':
         gbp = attributor_method(model)

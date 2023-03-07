@@ -1,92 +1,92 @@
-,mean_diff,sem,t_df19,p,sidak_sig
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained,-0.06854291813086401,0.021171142289142922,-3.237563528445722,0.004333118343884,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch,-0.022480974506275363,0.017699033556400946,-1.270180907597918,0.21935533647730837,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained,-0.05241806779280802,0.01675459676563626,-3.128578295618411,0.005531013142156371,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*language.*scratch - motor-hcp.*language.*scratch,-0.05512695162634669,0.02044257371966846,-2.6966737350350005,0.014291446734050918,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained,-0.04327726072189584,0.025553165917451475,-1.693616394215158,0.10666936570474028,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch,-0.031023789189098684,0.017344019750727635,-1.7887311958231102,0.0896149780109763,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained,-0.023623760084349486,0.018485759011301322,-1.2779437441495927,0.21666245245411825,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.11491397053835348,0.016105536476335086,7.135060089876799,8.777669239735866e-07,True
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,-0.0433747589492547,0.01704786492826584,-2.5442927388131826,0.019797193273857257,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.1341343531608798,0.033628786328453036,3.9886766013732062,0.0007862690464618961,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,-0.03253059121355266,0.019061780089093188,-1.706587268424426,0.10419073093636298,False
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.28903063597916256,0.03709561887899369,7.791503274874147,2.475294849051064e-07,True
-full-hcp.*emotion.*scratch - motor-hcp.*emotion.*scratch - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.06109599731354813,0.01746084217582658,-3.499029239158443,0.00240062930025132,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch,0.04606194362458866,0.0205052335987814,2.2463505915546396,0.03676502114000824,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained,0.01612485033805599,0.019204831048755044,0.8396246911581805,0.41155957551785893,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*language.*scratch - motor-hcp.*language.*scratch,0.013415966504517308,0.022635248279458554,0.5927024231800572,0.5603691996549088,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained,0.02526565740896817,0.02667988000749331,0.9469929175795414,0.35553187244397455,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch,0.03751912894176533,0.019925868012849426,1.8829357354756484,0.07511213459934796,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained,0.044919158046514515,0.01701682424706723,2.6396910136893563,0.016154108498434294,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.18345688866921753,0.02515134934248874,7.294117153360821,6.424758741963513e-07,True
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,0.025168159181609313,0.01965393385216563,1.2805659859711027,0.2157586402905715,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.20267727129174387,0.03656850316961418,5.542399981527115,2.4023663896063704e-05,True
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,0.036012326917311335,0.021109754381285633,1.7059566997727476,0.1043100754711641,False
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.35757355411002656,0.03699297951744449,9.665984161708531,9.071173406663045e-09,True
-full-hcp.*emotion.*pretrained - motor-hcp.*emotion.*pretrained - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,0.007446920817315883,0.019973395112204403,0.3728420118603456,0.7133928901344306,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained,-0.029937093286532667,0.009063475522499677,-3.303047844308197,0.0037395854557753833,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*language.*scratch - motor-hcp.*language.*scratch,-0.032645977120071334,0.013210538425092696,-2.4712071582231716,0.023098255901169554,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained,-0.020796286215620484,0.02034741068066873,-1.0220605728166785,0.31959029055660315,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch,-0.00854281468282333,0.014518901069278825,-0.5883926505222522,0.5631985721569968,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained,-0.001142785578074157,0.013980111879770137,-0.08174366470756361,0.9357055376234287,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.13739494504462885,0.016485011704374206,8.334537306283613,9.072095956319217e-08,True
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,-0.02089378444297934,0.01619128281875623,-1.2904341599651177,0.212383639398089,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.1566153276671552,0.034296426885066865,4.566520243989254,0.00021085825693188185,True
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,-0.010049616707277331,0.018306815528878775,-0.5489549338291078,0.5894301546661396,False
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.31151161048543796,0.03711660306050165,8.392783412255177,8.164783471520161e-08,True
-full-hcp.*gambling.*scratch - motor-hcp.*gambling.*scratch - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.03861502280727277,0.011688292134204326,-3.3037352560919255,0.003733798244543883,False
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*language.*scratch - motor-hcp.*language.*scratch,-0.002708883833538678,0.013295571785047129,-0.20374331223462122,0.840720430144366,False
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained,0.009140807070912148,0.019378113822101188,0.4717077809960454,0.6425071588602507,False
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch,0.02139427860370934,0.014117609147014456,1.515432137334226,0.1461232923332788,False
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained,0.0287943077084585,0.014167381161600401,2.0324368618318296,0.0563267575781169,False
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.16733203833116148,0.015405878581199833,10.861570630276214,1.368068082445372e-09,True
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,0.009043308843553328,0.016137444486164602,0.5603928708356881,0.5817598383043494,False
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.18655242095368782,0.02957585670079243,6.307591453426587,4.702041625539363e-06,True
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,0.019887476579255343,0.015535006981608621,1.280171718158831,0.21589434553923362,False
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.34144870377197056,0.035583637913363705,9.595665980058124,1.0189386266211957e-08,True
-full-hcp.*gambling.*pretrained - motor-hcp.*gambling.*pretrained - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.008677929520740101,0.01220578596118404,-0.7109685151236492,0.48574086076214207,False
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained,0.011849690904450861,0.020392751712920373,0.5810736614295743,0.568020498393855,False
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch,0.024103162437248027,0.016503083607436735,1.4605247728604185,0.16048544522335845,False
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained,0.03150319154199721,0.016672747824656477,1.8895020708829255,0.07418291691867877,False
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.17004092216470018,0.019481508337931965,8.728324276289104,4.487372047496884e-08,True
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,0.011752192677092006,0.01792792979774404,0.6555242467856407,0.5199894408307356,False
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.18926130478722653,0.03210251749922427,5.895528436104734,1.1216228209249026e-05,True
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,0.02259636041279403,0.020501050386632556,1.102205008360337,0.28413907610641465,False
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.3441575876055093,0.0380173597998546,9.052643040372981,2.5502557686049715e-08,True
-full-hcp.*language.*scratch - motor-hcp.*language.*scratch - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.005969045687201424,0.01804562226703867,-0.33077527606815843,0.7444341563763535,False
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch,0.012253471532797166,0.02144195771532876,0.5714716769559346,0.5743787264259265,False
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained,0.01965350063754635,0.025500569747894948,0.7707082952202953,0.4503580449749277,False
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.15819123126024937,0.02127929363675579,7.434045225401896,4.896221534718358e-07,True
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,-9.749822735885538e-05,0.02378827586662289,-0.004098583180450427,0.9967725407799738,False
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.17741161388277565,0.03527783698834768,5.028982189054702,7.45206851726132e-05,True
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,0.01074666950834316,0.02231149715745967,0.48166509994826123,0.6355450929410484,False
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.3323078967010584,0.034222612850694445,9.710184846225594,8.434465282105047e-09,True
-full-hcp.*language.*pretrained - motor-hcp.*language.*pretrained - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.017818736591652284,0.0200969330705089,-0.8866395946653303,0.3863583175313078,False
-full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch - full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained,0.007400029104749184,0.018200866370829384,0.40657565161893855,0.6888629084239948,False
-full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.14593775972745218,0.017991612188326803,8.111433161178214,1.363851654780093e-07,True
-full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,-0.012350969760156021,0.016826898300363966,-0.7340015693735351,0.4719092705474347,False
-full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.16515814234997847,0.03377661437364339,4.889718682961159,0.00010175114842169833,True
-full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,-0.001506802024453996,0.018765439091562284,-0.0802966569075123,0.9368410684996709,False
-full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.3200544251682612,0.03060737313652081,10.456775357385093,2.550933185324415e-09,True
-full-hcp.*motor.*scratch - motor-hcp.*motor.*scratch - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.03007220812444945,0.011259590616741219,-2.6708083044988213,0.015110116989029245,False
-full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained - full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch,0.13853773062270297,0.02009455608284693,6.894291670417205,1.4169360134608793e-06,True
-full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,-0.019750998864905205,0.017573013322146475,-1.1239392187800776,0.27503919510361236,False
-full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.15775811324522931,0.03336481093277694,4.7282783517964075,0.00014628636117136997,True
-full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,-0.00890683112920318,0.021639606997536805,-0.41159856231293973,0.685239659878796,False
-full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.3126543960635121,0.03664773472912265,8.5313430250044,6.365652393489308e-08,True
-full-hcp.*motor.*pretrained - motor-hcp.*motor.*pretrained - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.03747223722919864,0.01574895943949503,-2.3793468624489726,0.027979832201848402,False
-full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch - full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained,-0.15828872948760814,0.015524634440974362,-10.195971447149487,3.8465173322931895e-09,True
-full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.01922038262252631,0.03136119743880987,0.6128714523744826,0.5472278671283531,False
-full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,-0.1474445617519061,0.01845251913886477,-7.990484152451452,1.705837475802988e-07,True
-full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.17411666544080906,0.032253111848994404,5.398445466471717,3.290631448524866e-05,True
-full-hcp.*relational.*scratch - motor-hcp.*relational.*scratch - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.17600996785190165,0.01564266431412496,-11.251917468622576,7.622981700493114e-10,True
-full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained - full-hcp.*social.*scratch - motor-hcp.*social.*scratch,0.17750911211013454,0.032824563108772305,5.407813396385938,3.2237195032601725e-05,True
-full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,0.010844167735702038,0.020887483205524165,0.5191706262070891,0.6096367858416434,False
-full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.33240539492841725,0.03698095356633679,8.98855661826419,2.8485793159033842e-08,True
-full-hcp.*relational.*pretrained - motor-hcp.*relational.*pretrained - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.01772123836429343,0.01758021740556619,-1.0080215708073432,0.3261099460686031,False
-full-hcp.*social.*scratch - motor-hcp.*social.*scratch - full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained,-0.1666649443744325,0.031648464194269345,-5.266130556964305,4.402790670667231e-05,True
-full-hcp.*social.*scratch - motor-hcp.*social.*scratch - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.15489628281828277,0.03774605831908309,4.103641273186202,0.0006046978658949741,False
-full-hcp.*social.*scratch - motor-hcp.*social.*scratch - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.19523035047442794,0.03338329774396133,-5.848144541374525,1.2412434627195305e-05,True
-full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained - full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch,0.3215612271927153,0.03473100360821443,9.258621801434526,1.7932475117093226e-08,True
-full-hcp.*social.*pretrained - motor-hcp.*social.*pretrained - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.02856540609999545,0.017457079241991552,-1.6363221879226935,0.11822957043162483,False
-full-hcp.*wm.*scratch - motor-hcp.*wm.*scratch - full-hcp.*wm.*pretrained - motor-hcp.*wm.*pretrained,-0.3501266332927107,0.03320722387925317,-10.543688763801145,2.2282639739284028e-09,True
+,input1,input2,input3,input4,mean_diff,sem,t_df19,p,sidak_sig
+0,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,-0.06854291813086401,0.021171142289142922,-3.237563528445722,0.004333118343884,False
+1,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,-0.022480974506275363,0.017699033556400946,-1.270180907597918,0.21935533647730837,False
+2,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,-0.05241806779280802,0.01675459676563626,-3.128578295618411,0.005531013142156371,False
+3,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_language_scratch,motor-hcp_language_scratch,-0.05512695162634669,0.02044257371966846,-2.6966737350350005,0.014291446734050918,False
+4,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_language_pretrained,motor-hcp_language_pretrained,-0.04327726072189584,0.025553165917451475,-1.693616394215158,0.10666936570474028,False
+5,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_motor_scratch,motor-hcp_motor_scratch,-0.031023789189098684,0.017344019750727635,-1.7887311958231102,0.0896149780109763,False
+6,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,-0.023623760084349486,0.018485759011301322,-1.2779437441495927,0.21666245245411825,False
+7,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.11491397053835348,0.016105536476335086,7.135060089876799,8.777669239735866e-07,True
+8,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,-0.0433747589492547,0.01704786492826584,-2.5442927388131826,0.019797193273857257,False
+9,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_social_scratch,motor-hcp_social_scratch,0.1341343531608798,0.033628786328453036,3.9886766013732062,0.0007862690464618961,False
+10,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_social_pretrained,motor-hcp_social_pretrained,-0.03253059121355266,0.019061780089093188,-1.706587268424426,0.10419073093636298,False
+11,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.28903063597916256,0.03709561887899369,7.791503274874147,2.475294849051064e-07,True
+12,full-hcp_emotion_scratch,motor-hcp_emotion_scratch,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.06109599731354813,0.01746084217582658,-3.499029239158443,0.00240062930025132,False
+13,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,0.04606194362458866,0.0205052335987814,2.2463505915546396,0.03676502114000824,False
+14,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,0.01612485033805599,0.019204831048755044,0.8396246911581805,0.41155957551785893,False
+15,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_language_scratch,motor-hcp_language_scratch,0.013415966504517308,0.022635248279458554,0.5927024231800572,0.5603691996549088,False
+16,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_language_pretrained,motor-hcp_language_pretrained,0.02526565740896817,0.02667988000749331,0.9469929175795414,0.35553187244397455,False
+17,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_motor_scratch,motor-hcp_motor_scratch,0.03751912894176533,0.019925868012849426,1.8829357354756484,0.07511213459934796,False
+18,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,0.044919158046514515,0.01701682424706723,2.6396910136893563,0.016154108498434294,False
+19,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.18345688866921753,0.02515134934248874,7.294117153360821,6.424758741963513e-07,True
+20,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,0.025168159181609313,0.01965393385216563,1.2805659859711027,0.2157586402905715,False
+21,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_social_scratch,motor-hcp_social_scratch,0.20267727129174387,0.03656850316961418,5.542399981527115,2.4023663896063704e-05,True
+22,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_social_pretrained,motor-hcp_social_pretrained,0.036012326917311335,0.021109754381285633,1.7059566997727476,0.1043100754711641,False
+23,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.35757355411002656,0.03699297951744449,9.665984161708531,9.071173406663045e-09,True
+24,full-hcp_emotion_pretrained,motor-hcp_emotion_pretrained,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,0.007446920817315883,0.019973395112204403,0.3728420118603456,0.7133928901344306,False
+25,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,-0.029937093286532667,0.009063475522499677,-3.303047844308197,0.0037395854557753833,False
+26,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_language_scratch,motor-hcp_language_scratch,-0.032645977120071334,0.013210538425092696,-2.4712071582231716,0.023098255901169554,False
+27,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_language_pretrained,motor-hcp_language_pretrained,-0.020796286215620484,0.02034741068066873,-1.0220605728166785,0.31959029055660315,False
+28,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_motor_scratch,motor-hcp_motor_scratch,-0.00854281468282333,0.014518901069278825,-0.5883926505222522,0.5631985721569968,False
+29,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,-0.001142785578074157,0.013980111879770137,-0.08174366470756361,0.9357055376234287,False
+30,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.13739494504462885,0.016485011704374206,8.334537306283613,9.072095956319217e-08,True
+31,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,-0.02089378444297934,0.01619128281875623,-1.2904341599651177,0.212383639398089,False
+32,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_social_scratch,motor-hcp_social_scratch,0.1566153276671552,0.034296426885066865,4.566520243989254,0.00021085825693188185,True
+33,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_social_pretrained,motor-hcp_social_pretrained,-0.010049616707277331,0.018306815528878775,-0.5489549338291078,0.5894301546661396,False
+34,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.31151161048543796,0.03711660306050165,8.392783412255177,8.164783471520161e-08,True
+35,full-hcp_gambling_scratch,motor-hcp_gambling_scratch,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.03861502280727277,0.011688292134204326,-3.3037352560919255,0.003733798244543883,False
+36,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_language_scratch,motor-hcp_language_scratch,-0.002708883833538678,0.013295571785047129,-0.20374331223462122,0.840720430144366,False
+37,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_language_pretrained,motor-hcp_language_pretrained,0.009140807070912148,0.019378113822101188,0.4717077809960454,0.6425071588602507,False
+38,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_motor_scratch,motor-hcp_motor_scratch,0.02139427860370934,0.014117609147014456,1.515432137334226,0.1461232923332788,False
+39,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,0.0287943077084585,0.014167381161600401,2.0324368618318296,0.0563267575781169,False
+40,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.16733203833116148,0.015405878581199833,10.861570630276214,1.368068082445372e-09,True
+41,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,0.009043308843553328,0.016137444486164602,0.5603928708356881,0.5817598383043494,False
+42,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_social_scratch,motor-hcp_social_scratch,0.18655242095368782,0.02957585670079243,6.307591453426587,4.702041625539363e-06,True
+43,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_social_pretrained,motor-hcp_social_pretrained,0.019887476579255343,0.015535006981608621,1.280171718158831,0.21589434553923362,False
+44,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.34144870377197056,0.035583637913363705,9.595665980058124,1.0189386266211957e-08,True
+45,full-hcp_gambling_pretrained,motor-hcp_gambling_pretrained,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.008677929520740101,0.01220578596118404,-0.7109685151236492,0.48574086076214207,False
+46,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_language_pretrained,motor-hcp_language_pretrained,0.011849690904450861,0.020392751712920373,0.5810736614295743,0.568020498393855,False
+47,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_motor_scratch,motor-hcp_motor_scratch,0.024103162437248027,0.016503083607436735,1.4605247728604185,0.16048544522335845,False
+48,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,0.03150319154199721,0.016672747824656477,1.8895020708829255,0.07418291691867877,False
+49,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.17004092216470018,0.019481508337931965,8.728324276289104,4.487372047496884e-08,True
+50,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,0.011752192677092006,0.01792792979774404,0.6555242467856407,0.5199894408307356,False
+51,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_social_scratch,motor-hcp_social_scratch,0.18926130478722653,0.03210251749922427,5.895528436104734,1.1216228209249026e-05,True
+52,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_social_pretrained,motor-hcp_social_pretrained,0.02259636041279403,0.020501050386632556,1.102205008360337,0.28413907610641465,False
+53,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.3441575876055093,0.0380173597998546,9.052643040372981,2.5502557686049715e-08,True
+54,full-hcp_language_scratch,motor-hcp_language_scratch,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.005969045687201424,0.01804562226703867,-0.33077527606815843,0.7444341563763535,False
+55,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_motor_scratch,motor-hcp_motor_scratch,0.012253471532797166,0.02144195771532876,0.5714716769559346,0.5743787264259265,False
+56,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,0.01965350063754635,0.025500569747894948,0.7707082952202953,0.4503580449749277,False
+57,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.15819123126024937,0.02127929363675579,7.434045225401896,4.896221534718358e-07,True
+58,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,-9.749822735885538e-05,0.02378827586662289,-0.004098583180450427,0.9967725407799738,False
+59,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_social_scratch,motor-hcp_social_scratch,0.17741161388277565,0.03527783698834768,5.028982189054702,7.45206851726132e-05,True
+60,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_social_pretrained,motor-hcp_social_pretrained,0.01074666950834316,0.02231149715745967,0.48166509994826123,0.6355450929410484,False
+61,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.3323078967010584,0.034222612850694445,9.710184846225594,8.434465282105047e-09,True
+62,full-hcp_language_pretrained,motor-hcp_language_pretrained,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.017818736591652284,0.0200969330705089,-0.8866395946653303,0.3863583175313078,False
+63,full-hcp_motor_scratch,motor-hcp_motor_scratch,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,0.007400029104749184,0.018200866370829384,0.40657565161893855,0.6888629084239948,False
+64,full-hcp_motor_scratch,motor-hcp_motor_scratch,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.14593775972745218,0.017991612188326803,8.111433161178214,1.363851654780093e-07,True
+65,full-hcp_motor_scratch,motor-hcp_motor_scratch,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,-0.012350969760156021,0.016826898300363966,-0.7340015693735351,0.4719092705474347,False
+66,full-hcp_motor_scratch,motor-hcp_motor_scratch,full-hcp_social_scratch,motor-hcp_social_scratch,0.16515814234997847,0.03377661437364339,4.889718682961159,0.00010175114842169833,True
+67,full-hcp_motor_scratch,motor-hcp_motor_scratch,full-hcp_social_pretrained,motor-hcp_social_pretrained,-0.001506802024453996,0.018765439091562284,-0.0802966569075123,0.9368410684996709,False
+68,full-hcp_motor_scratch,motor-hcp_motor_scratch,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.3200544251682612,0.03060737313652081,10.456775357385093,2.550933185324415e-09,True
+69,full-hcp_motor_scratch,motor-hcp_motor_scratch,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.03007220812444945,0.011259590616741219,-2.6708083044988213,0.015110116989029245,False
+70,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,full-hcp_relational_scratch,motor-hcp_relational_scratch,0.13853773062270297,0.02009455608284693,6.894291670417205,1.4169360134608793e-06,True
+71,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,-0.019750998864905205,0.017573013322146475,-1.1239392187800776,0.27503919510361236,False
+72,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,full-hcp_social_scratch,motor-hcp_social_scratch,0.15775811324522931,0.03336481093277694,4.7282783517964075,0.00014628636117136997,True
+73,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,full-hcp_social_pretrained,motor-hcp_social_pretrained,-0.00890683112920318,0.021639606997536805,-0.41159856231293973,0.685239659878796,False
+74,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.3126543960635121,0.03664773472912265,8.5313430250044,6.365652393489308e-08,True
+75,full-hcp_motor_pretrained,motor-hcp_motor_pretrained,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.03747223722919864,0.01574895943949503,-2.3793468624489726,0.027979832201848402,False
+76,full-hcp_relational_scratch,motor-hcp_relational_scratch,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,-0.15828872948760814,0.015524634440974362,-10.195971447149487,3.8465173322931895e-09,True
+77,full-hcp_relational_scratch,motor-hcp_relational_scratch,full-hcp_social_scratch,motor-hcp_social_scratch,0.01922038262252631,0.03136119743880987,0.6128714523744826,0.5472278671283531,False
+78,full-hcp_relational_scratch,motor-hcp_relational_scratch,full-hcp_social_pretrained,motor-hcp_social_pretrained,-0.1474445617519061,0.01845251913886477,-7.990484152451452,1.705837475802988e-07,True
+79,full-hcp_relational_scratch,motor-hcp_relational_scratch,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.17411666544080906,0.032253111848994404,5.398445466471717,3.290631448524866e-05,True
+80,full-hcp_relational_scratch,motor-hcp_relational_scratch,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.17600996785190165,0.01564266431412496,-11.251917468622576,7.622981700493114e-10,True
+81,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,full-hcp_social_scratch,motor-hcp_social_scratch,0.17750911211013454,0.032824563108772305,5.407813396385938,3.2237195032601725e-05,True
+82,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,full-hcp_social_pretrained,motor-hcp_social_pretrained,0.010844167735702038,0.020887483205524165,0.5191706262070891,0.6096367858416434,False
+83,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.33240539492841725,0.03698095356633679,8.98855661826419,2.8485793159033842e-08,True
+84,full-hcp_relational_pretrained,motor-hcp_relational_pretrained,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.01772123836429343,0.01758021740556619,-1.0080215708073432,0.3261099460686031,False
+85,full-hcp_social_scratch,motor-hcp_social_scratch,full-hcp_social_pretrained,motor-hcp_social_pretrained,-0.1666649443744325,0.031648464194269345,-5.266130556964305,4.402790670667231e-05,True
+86,full-hcp_social_scratch,motor-hcp_social_scratch,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.15489628281828277,0.03774605831908309,4.103641273186202,0.0006046978658949741,False
+87,full-hcp_social_scratch,motor-hcp_social_scratch,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.19523035047442794,0.03338329774396133,-5.848144541374525,1.2412434627195305e-05,True
+88,full-hcp_social_pretrained,motor-hcp_social_pretrained,full-hcp_wm_scratch,motor-hcp_wm_scratch,0.3215612271927153,0.03473100360821443,9.258621801434526,1.7932475117093226e-08,True
+89,full-hcp_social_pretrained,motor-hcp_social_pretrained,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.02856540609999545,0.017457079241991552,-1.6363221879226935,0.11822957043162483,False
+90,full-hcp_wm_scratch,motor-hcp_wm_scratch,full-hcp_wm_pretrained,motor-hcp_wm_pretrained,-0.3501266332927107,0.03320722387925317,-10.543688763801145,2.2282639739284028e-09,True

@@ -1,2 +1,2 @@
-,mean_diff,sem,t_df19,p,sidak_sig
-full-hcp.*scratch - motor-hcp.*scratch - full-hcp.*pretrained - motor-hcp.*pretrained,-0.10775865693756388,0.009325862994260378,-11.554818787696558,4.89288246977493e-10,True
+,input1,input2,input3,input4,mean_diff,sem,t_df19,p,sidak_sig
+0,full-hcp_scratch,motor-hcp_scratch,full-hcp_pretrained,motor-hcp_pretrained,-0.10775865693756388,0.009325862994260378,-11.554818787696558,4.89288246977493e-10,True

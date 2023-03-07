@@ -1,67 +1,67 @@
-,mean_diff,sem,t_df19,p,sidak_sig
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*scratch.*010 - motor-hcp.*scratch.*010,0.0060939630813580834,0.014389982571548925,0.42348648103346065,0.6766956182756216,False
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*scratch.*025 - motor-hcp.*scratch.*025,0.14105598122840549,0.016594360521604352,8.500236031678556,6.730060603116285e-08,True
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*scratch.*050 - motor-hcp.*scratch.*050,0.15886744134955205,0.014921055364292692,10.647198704840601,1.8987793621561807e-09,True
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*scratch.*075 - motor-hcp.*scratch.*075,0.18780799465215509,0.016073626621033628,11.684232754691047,4.059430780147721e-10,True
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*scratch.*120 - motor-hcp.*scratch.*120,0.1687178964143104,0.020877656124018564,8.081266182950968,1.4418665328838722e-07,True
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001,0.03162398108873725,0.020411718841634577,1.5493051483852789,0.1378048402686494,False
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010,-0.016829970420318786,0.01565426278609285,-1.075104631261871,0.2957915867304634,False
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,-0.0026114075948672545,0.01077993580853689,-0.24224704499624367,0.8111843363439697,False
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,0.030027624832781662,0.016260268912828793,1.8466868533207896,0.08042863209379568,False
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.01599104253245721,0.01625425448162665,-0.9838065812574198,0.33757354094559666,False
-full-hcp.*scratch.*001 - motor-hcp.*scratch.*001 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.01022785027347839,0.012618045159878655,-0.8105732816680415,0.42764760642091915,False
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*scratch.*025 - motor-hcp.*scratch.*025,0.1349620181470474,0.01436446271923787,9.39554933483847,1.4229828718735481e-08,True
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*scratch.*050 - motor-hcp.*scratch.*050,0.15277347826819399,0.018895672294646722,8.085104138447393,1.431689098106751e-07,True
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*scratch.*075 - motor-hcp.*scratch.*075,0.181714031570797,0.014049190026563423,12.934128674124432,7.231216069212776e-11,True
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*scratch.*120 - motor-hcp.*scratch.*120,0.1626239333329523,0.02450226638538836,6.637097596405662,2.3837468101493805e-06,True
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001,0.025530018007379175,0.02646425003496509,0.9646983373286001,0.3468149360902345,False
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010,-0.022923933501676867,0.021647258403408615,-1.0589762950336115,0.30288846841304595,False
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,-0.008705370676225326,0.01364008199774801,-0.6382198199147623,0.530948529549389,False
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,0.02393366175142355,0.015319020247577215,1.5623493777422732,0.13470834091767195,False
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.02208500561381533,0.013920762793477499,-1.586479558732453,0.1291333560335113,False
-full-hcp.*scratch.*010 - motor-hcp.*scratch.*010 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.016321813354836436,0.013772625735956232,-1.1850908946305736,0.25059319760543936,False
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*scratch.*050 - motor-hcp.*scratch.*050,0.01781146012114655,0.020713812431457868,0.8598832387849789,0.40057347461949877,False
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*scratch.*075 - motor-hcp.*scratch.*075,0.046752013423749614,0.02060581709122491,2.268874522993761,0.03511746586007887,False
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*scratch.*120 - motor-hcp.*scratch.*120,0.0276619151859049,0.024245346148868346,1.1409164883049534,0.26808187073303313,False
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001,-0.10943200013966825,0.02223993489397481,-4.920518007870395,9.496479435849514e-05,True
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010,-0.15788595164872432,0.019946733839830692,-7.915378673848313,1.962001687923754e-07,True
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,-0.14366738882327276,0.015191353394177216,-9.457181667456956,1.283238830611496e-08,True
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,-0.11102835639562385,0.01698805871908093,-6.535670627916841,2.9336490278145728e-06,True
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.15704702376086271,0.015824500138179248,-9.924296021329644,5.947542418573751e-09,True
-full-hcp.*scratch.*025 - motor-hcp.*scratch.*025 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.15128383150188388,0.01714491083036053,-8.823833089524596,3.794292640340079e-08,True
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*scratch.*075 - motor-hcp.*scratch.*075,0.02894055330260306,0.02382194519019245,1.2148694437647332,0.2392984205227271,False
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*scratch.*120 - motor-hcp.*scratch.*120,0.009850455064758363,0.021168681740970738,0.4653315301015361,0.6469833215319589,False
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001,-0.1272434602608148,0.02544111622948851,-5.001488893530872,7.923589421085803e-05,True
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010,-0.17569741176987083,0.023554414998578105,-7.4592135606202525,4.664009031421083e-07,True
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,-0.1614788489444193,0.018927505375896367,-8.531438546046221,6.364565558040757e-08,True
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,-0.12883981651677037,0.02142299250324845,-6.014090538342573,8.714746273405534e-06,True
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.17485848388200925,0.022224589806192435,-7.8677935299075115,2.1446904776060898e-07,True
-full-hcp.*scratch.*050 - motor-hcp.*scratch.*050 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.16909529162303039,0.01918185404869047,-8.815377866696592,3.85088965099183e-08,True
-full-hcp.*scratch.*075 - motor-hcp.*scratch.*075 - full-hcp.*scratch.*120 - motor-hcp.*scratch.*120,-0.01909009823784467,0.026146331849536526,-0.7301252943511105,0.47422048788367466,False
-full-hcp.*scratch.*075 - motor-hcp.*scratch.*075 - full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001,-0.15618401356341785,0.024002755513861825,-6.506920152280852,3.112215650390726e-06,True
-full-hcp.*scratch.*075 - motor-hcp.*scratch.*075 - full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010,-0.2046379650724739,0.02035129275954659,-10.055280885116266,4.815441072711958e-09,True
-full-hcp.*scratch.*075 - motor-hcp.*scratch.*075 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,-0.19041940224702233,0.015472548911532703,-12.306918745953379,1.68924594240555e-10,True
-full-hcp.*scratch.*075 - motor-hcp.*scratch.*075 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,-0.15778036981937343,0.0178332175285548,-8.847554826644899,3.6400805459525065e-08,True
-full-hcp.*scratch.*075 - motor-hcp.*scratch.*075 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.20379903718461229,0.016201793141396886,-12.578795162116302,1.1645831811109946e-10,True
-full-hcp.*scratch.*075 - motor-hcp.*scratch.*075 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.19803584492563342,0.011647807583740252,-17.00198457966299,5.961402910036025e-13,True
-full-hcp.*scratch.*120 - motor-hcp.*scratch.*120 - full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001,-0.13709391532557313,0.027642513547949867,-4.959531450993567,8.702442157599659e-05,True
-full-hcp.*scratch.*120 - motor-hcp.*scratch.*120 - full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010,-0.18554786683462918,0.024344623633823646,-7.621718438761767,3.415099429428049e-07,True
-full-hcp.*scratch.*120 - motor-hcp.*scratch.*120 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,-0.17132930400917762,0.01942307489776683,-8.820915581645428,3.813723194653981e-08,True
-full-hcp.*scratch.*120 - motor-hcp.*scratch.*120 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,-0.13869027158152872,0.022774437316692393,-6.089734277644544,7.425639990558834e-06,True
-full-hcp.*scratch.*120 - motor-hcp.*scratch.*120 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.1847089389467676,0.021401043524612574,-8.630837965183353,5.3318288924291716e-08,True
-full-hcp.*scratch.*120 - motor-hcp.*scratch.*120 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.1789457466877888,0.021092997939126487,-8.483656387025626,6.93308433316469e-08,True
-full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001 - full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010,-0.048453951509056056,0.016598450063205792,-2.9191853049258603,0.008799505088711142,False
-full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,-0.0342353886836045,0.02015608342689976,-1.6985139403578213,0.10572761062640622,False
-full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,-0.001596356255955611,0.021758875015989748,-0.07336575327458388,0.9422819361191865,False
-full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.04761502362119448,0.02197293386833197,-2.1669852513331707,0.043152304529580965,False
-full-hcp.*pretrained.*001 - motor-hcp.*pretrained.*001 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.04185183136221561,0.022069926283386672,-1.8963285524754985,0.07322765591398613,False
-full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010 - full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025,0.014218562825451536,0.01274562994996901,1.115563756461179,0.27852015536980534,False
-full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,0.046857595253100445,0.017956645631274897,2.6094848790404974,0.017232704676173705,False
-full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,0.0008389278878615902,0.019167206449232244,0.043768918025881336,0.9655453246224652,False
-full-hcp.*pretrained.*010 - motor-hcp.*pretrained.*010 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,0.006602120146840451,0.018055328369057905,0.365660486028864,0.7186577879466756,False
-full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025 - full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050,0.032639032427648915,0.010298253685368072,3.1693754518810295,0.005048909919267944,False
-full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.013379634937589957,0.013152461362953142,-1.0172723240439772,0.32180351085548087,False
-full-hcp.*pretrained.*025 - motor-hcp.*pretrained.*025 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.00761644267861109,0.01016357248922173,-0.7493863684927892,0.4628025414092669,False
-full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050 - full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075,-0.04601866736523887,0.017437469235257318,-2.6390680175189876,0.016175693145263705,False
-full-hcp.*pretrained.*050 - motor-hcp.*pretrained.*050 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,-0.04025547510626003,0.012721392894345282,-3.164392094528719,0.005105526645792152,False
-full-hcp.*pretrained.*075 - motor-hcp.*pretrained.*075 - full-hcp.*pretrained.*120 - motor-hcp.*pretrained.*120,0.005763192258978855,0.013927125825997125,0.4138105974616076,0.6836464922402543,False
+,input1,input2,input3,input4,mean_diff,sem,t_df19,p,sidak_sig
+0,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_scratch_010,motor-hcp_scratch_010,0.0060939630813580834,0.014389982571548925,0.42348648103346065,0.6766956182756216,False
+1,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_scratch_025,motor-hcp_scratch_025,0.14105598122840549,0.016594360521604352,8.500236031678556,6.730060603116285e-08,True
+2,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_scratch_050,motor-hcp_scratch_050,0.15886744134955205,0.014921055364292692,10.647198704840601,1.8987793621561807e-09,True
+3,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_scratch_075,motor-hcp_scratch_075,0.18780799465215509,0.016073626621033628,11.684232754691047,4.059430780147721e-10,True
+4,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_scratch_120,motor-hcp_scratch_120,0.1687178964143104,0.020877656124018564,8.081266182950968,1.4418665328838722e-07,True
+5,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_pretrained_001,motor-hcp_pretrained_001,0.03162398108873725,0.020411718841634577,1.5493051483852789,0.1378048402686494,False
+6,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_pretrained_010,motor-hcp_pretrained_010,-0.016829970420318786,0.01565426278609285,-1.075104631261871,0.2957915867304634,False
+7,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_pretrained_025,motor-hcp_pretrained_025,-0.0026114075948672545,0.01077993580853689,-0.24224704499624367,0.8111843363439697,False
+8,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_pretrained_050,motor-hcp_pretrained_050,0.030027624832781662,0.016260268912828793,1.8466868533207896,0.08042863209379568,False
+9,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.01599104253245721,0.01625425448162665,-0.9838065812574198,0.33757354094559666,False
+10,full-hcp_scratch_001,motor-hcp_scratch_001,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.01022785027347839,0.012618045159878655,-0.8105732816680415,0.42764760642091915,False
+11,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_scratch_025,motor-hcp_scratch_025,0.1349620181470474,0.01436446271923787,9.39554933483847,1.4229828718735481e-08,True
+12,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_scratch_050,motor-hcp_scratch_050,0.15277347826819399,0.018895672294646722,8.085104138447393,1.431689098106751e-07,True
+13,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_scratch_075,motor-hcp_scratch_075,0.181714031570797,0.014049190026563423,12.934128674124432,7.231216069212776e-11,True
+14,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_scratch_120,motor-hcp_scratch_120,0.1626239333329523,0.02450226638538836,6.637097596405662,2.3837468101493805e-06,True
+15,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_pretrained_001,motor-hcp_pretrained_001,0.025530018007379175,0.02646425003496509,0.9646983373286001,0.3468149360902345,False
+16,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_pretrained_010,motor-hcp_pretrained_010,-0.022923933501676867,0.021647258403408615,-1.0589762950336115,0.30288846841304595,False
+17,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_pretrained_025,motor-hcp_pretrained_025,-0.008705370676225326,0.01364008199774801,-0.6382198199147623,0.530948529549389,False
+18,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_pretrained_050,motor-hcp_pretrained_050,0.02393366175142355,0.015319020247577215,1.5623493777422732,0.13470834091767195,False
+19,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.02208500561381533,0.013920762793477499,-1.586479558732453,0.1291333560335113,False
+20,full-hcp_scratch_010,motor-hcp_scratch_010,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.016321813354836436,0.013772625735956232,-1.1850908946305736,0.25059319760543936,False
+21,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_scratch_050,motor-hcp_scratch_050,0.01781146012114655,0.020713812431457868,0.8598832387849789,0.40057347461949877,False
+22,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_scratch_075,motor-hcp_scratch_075,0.046752013423749614,0.02060581709122491,2.268874522993761,0.03511746586007887,False
+23,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_scratch_120,motor-hcp_scratch_120,0.0276619151859049,0.024245346148868346,1.1409164883049534,0.26808187073303313,False
+24,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_pretrained_001,motor-hcp_pretrained_001,-0.10943200013966825,0.02223993489397481,-4.920518007870395,9.496479435849514e-05,True
+25,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_pretrained_010,motor-hcp_pretrained_010,-0.15788595164872432,0.019946733839830692,-7.915378673848313,1.962001687923754e-07,True
+26,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_pretrained_025,motor-hcp_pretrained_025,-0.14366738882327276,0.015191353394177216,-9.457181667456956,1.283238830611496e-08,True
+27,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_pretrained_050,motor-hcp_pretrained_050,-0.11102835639562385,0.01698805871908093,-6.535670627916841,2.9336490278145728e-06,True
+28,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.15704702376086271,0.015824500138179248,-9.924296021329644,5.947542418573751e-09,True
+29,full-hcp_scratch_025,motor-hcp_scratch_025,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.15128383150188388,0.01714491083036053,-8.823833089524596,3.794292640340079e-08,True
+30,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_scratch_075,motor-hcp_scratch_075,0.02894055330260306,0.02382194519019245,1.2148694437647332,0.2392984205227271,False
+31,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_scratch_120,motor-hcp_scratch_120,0.009850455064758363,0.021168681740970738,0.4653315301015361,0.6469833215319589,False
+32,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_pretrained_001,motor-hcp_pretrained_001,-0.1272434602608148,0.02544111622948851,-5.001488893530872,7.923589421085803e-05,True
+33,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_pretrained_010,motor-hcp_pretrained_010,-0.17569741176987083,0.023554414998578105,-7.4592135606202525,4.664009031421083e-07,True
+34,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_pretrained_025,motor-hcp_pretrained_025,-0.1614788489444193,0.018927505375896367,-8.531438546046221,6.364565558040757e-08,True
+35,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_pretrained_050,motor-hcp_pretrained_050,-0.12883981651677037,0.02142299250324845,-6.014090538342573,8.714746273405534e-06,True
+36,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.17485848388200925,0.022224589806192435,-7.8677935299075115,2.1446904776060898e-07,True
+37,full-hcp_scratch_050,motor-hcp_scratch_050,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.16909529162303039,0.01918185404869047,-8.815377866696592,3.85088965099183e-08,True
+38,full-hcp_scratch_075,motor-hcp_scratch_075,full-hcp_scratch_120,motor-hcp_scratch_120,-0.01909009823784467,0.026146331849536526,-0.7301252943511105,0.47422048788367466,False
+39,full-hcp_scratch_075,motor-hcp_scratch_075,full-hcp_pretrained_001,motor-hcp_pretrained_001,-0.15618401356341785,0.024002755513861825,-6.506920152280852,3.112215650390726e-06,True
+40,full-hcp_scratch_075,motor-hcp_scratch_075,full-hcp_pretrained_010,motor-hcp_pretrained_010,-0.2046379650724739,0.02035129275954659,-10.055280885116266,4.815441072711958e-09,True
+41,full-hcp_scratch_075,motor-hcp_scratch_075,full-hcp_pretrained_025,motor-hcp_pretrained_025,-0.19041940224702233,0.015472548911532703,-12.306918745953379,1.68924594240555e-10,True
+42,full-hcp_scratch_075,motor-hcp_scratch_075,full-hcp_pretrained_050,motor-hcp_pretrained_050,-0.15778036981937343,0.0178332175285548,-8.847554826644899,3.6400805459525065e-08,True
+43,full-hcp_scratch_075,motor-hcp_scratch_075,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.20379903718461229,0.016201793141396886,-12.578795162116302,1.1645831811109946e-10,True
+44,full-hcp_scratch_075,motor-hcp_scratch_075,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.19803584492563342,0.011647807583740252,-17.00198457966299,5.961402910036025e-13,True
+45,full-hcp_scratch_120,motor-hcp_scratch_120,full-hcp_pretrained_001,motor-hcp_pretrained_001,-0.13709391532557313,0.027642513547949867,-4.959531450993567,8.702442157599659e-05,True
+46,full-hcp_scratch_120,motor-hcp_scratch_120,full-hcp_pretrained_010,motor-hcp_pretrained_010,-0.18554786683462918,0.024344623633823646,-7.621718438761767,3.415099429428049e-07,True
+47,full-hcp_scratch_120,motor-hcp_scratch_120,full-hcp_pretrained_025,motor-hcp_pretrained_025,-0.17132930400917762,0.01942307489776683,-8.820915581645428,3.813723194653981e-08,True
+48,full-hcp_scratch_120,motor-hcp_scratch_120,full-hcp_pretrained_050,motor-hcp_pretrained_050,-0.13869027158152872,0.022774437316692393,-6.089734277644544,7.425639990558834e-06,True
+49,full-hcp_scratch_120,motor-hcp_scratch_120,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.1847089389467676,0.021401043524612574,-8.630837965183353,5.3318288924291716e-08,True
+50,full-hcp_scratch_120,motor-hcp_scratch_120,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.1789457466877888,0.021092997939126487,-8.483656387025626,6.93308433316469e-08,True
+51,full-hcp_pretrained_001,motor-hcp_pretrained_001,full-hcp_pretrained_010,motor-hcp_pretrained_010,-0.048453951509056056,0.016598450063205792,-2.9191853049258603,0.008799505088711142,False
+52,full-hcp_pretrained_001,motor-hcp_pretrained_001,full-hcp_pretrained_025,motor-hcp_pretrained_025,-0.0342353886836045,0.02015608342689976,-1.6985139403578213,0.10572761062640622,False
+53,full-hcp_pretrained_001,motor-hcp_pretrained_001,full-hcp_pretrained_050,motor-hcp_pretrained_050,-0.001596356255955611,0.021758875015989748,-0.07336575327458388,0.9422819361191865,False
+54,full-hcp_pretrained_001,motor-hcp_pretrained_001,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.04761502362119448,0.02197293386833197,-2.1669852513331707,0.043152304529580965,False
+55,full-hcp_pretrained_001,motor-hcp_pretrained_001,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.04185183136221561,0.022069926283386672,-1.8963285524754985,0.07322765591398613,False
+56,full-hcp_pretrained_010,motor-hcp_pretrained_010,full-hcp_pretrained_025,motor-hcp_pretrained_025,0.014218562825451536,0.01274562994996901,1.115563756461179,0.27852015536980534,False
+57,full-hcp_pretrained_010,motor-hcp_pretrained_010,full-hcp_pretrained_050,motor-hcp_pretrained_050,0.046857595253100445,0.017956645631274897,2.6094848790404974,0.017232704676173705,False
+58,full-hcp_pretrained_010,motor-hcp_pretrained_010,full-hcp_pretrained_075,motor-hcp_pretrained_075,0.0008389278878615902,0.019167206449232244,0.043768918025881336,0.9655453246224652,False
+59,full-hcp_pretrained_010,motor-hcp_pretrained_010,full-hcp_pretrained_120,motor-hcp_pretrained_120,0.006602120146840451,0.018055328369057905,0.365660486028864,0.7186577879466756,False
+60,full-hcp_pretrained_025,motor-hcp_pretrained_025,full-hcp_pretrained_050,motor-hcp_pretrained_050,0.032639032427648915,0.010298253685368072,3.1693754518810295,0.005048909919267944,False
+61,full-hcp_pretrained_025,motor-hcp_pretrained_025,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.013379634937589957,0.013152461362953142,-1.0172723240439772,0.32180351085548087,False
+62,full-hcp_pretrained_025,motor-hcp_pretrained_025,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.00761644267861109,0.01016357248922173,-0.7493863684927892,0.4628025414092669,False
+63,full-hcp_pretrained_050,motor-hcp_pretrained_050,full-hcp_pretrained_075,motor-hcp_pretrained_075,-0.04601866736523887,0.017437469235257318,-2.6390680175189876,0.016175693145263705,False
+64,full-hcp_pretrained_050,motor-hcp_pretrained_050,full-hcp_pretrained_120,motor-hcp_pretrained_120,-0.04025547510626003,0.012721392894345282,-3.164392094528719,0.005105526645792152,False
+65,full-hcp_pretrained_075,motor-hcp_pretrained_075,full-hcp_pretrained_120,motor-hcp_pretrained_120,0.005763192258978855,0.013927125825997125,0.4138105974616076,0.6836464922402543,False
