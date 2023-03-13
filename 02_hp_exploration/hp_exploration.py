@@ -5,7 +5,7 @@ import torch
 import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
-from delphi.utils.tools import ToTensor, compute_accuracy, convert_wandb_config
+from delphi.utils.tools import ToTensor, compute_accuracy, convert_wandb_config, read_config
 from sklearn.model_selection import StratifiedShuffleSplit
 from torch.utils.data import DataLoader
 
@@ -16,9 +16,11 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 g = set_random_seed(2020)
 
-class_labels = ["handleft", "handright", "footleft", "footright", "tongue",
-                "reward", "loss", "mental", "random", "body", "face", "place", "tool",
-                "match", "relation", "emotion", "neut", "story", "math"]
+#class_labels = ["handleft", "handright", "footleft", "footright", "tongue",
+#                "reward", "loss", "mental", "random", "body", "face", "place", "tool",
+#                "match", "relation", "emotion", "neut", "story", "math"]
+
+class_labels = ["handleft", "handright", "footleft", "footright", "tongue"]
 
 
 data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
@@ -126,7 +128,7 @@ def train_net(model, config, save_name):
 
 # define the training function with the wandb init
 def main():
-    with wandb.init(group="hp-optimization", job_type="hcp-explo") as run:
+    with wandb.init(project="test-motor-optim", group="hp-optimization", job_type="hcp-explo") as run:
 
         converted_config = convert_wandb_config(wandb.config, BrainStateClassifier3d._REQUIRED_PARAMS)
 
@@ -138,7 +140,7 @@ def main():
         # We do not necessarily need this line, but it is nice to update the config.
         wandb.config.update(model.config, allow_val_change=True)
 
-        run_name = 'bs-{}_ks-{}_c1-{}_c2-{]_c3-{]_c4-{]_lin1-{}_lin-2{}_lr-{}_do-{}_wd-{}'.format(
+        run_name = 'bs-{}_ks-{}_c1-{}_c2-{}_c3-{}_c4-{}_lin1-{}_lin-2{}_lr-{}_do-{}_wd-{}'.format(
             run.config.batch_size,
             run.config.kernel_size,
             run.config.channels2,
@@ -152,7 +154,7 @@ def main():
             run.config.weight_decay
         )
 
-        save_name = os.path.join("../results/02_hp_exploration/models", run_name)
+        save_name = os.path.join("models", run_name)
         wandb.run.name = run_name
 
         # now train the netwok

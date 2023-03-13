@@ -1,8 +1,7 @@
 program: hp_exploration.py
-name: hp-optimization-motor
 group: hp-optimizations
 entity: philis893
-project: thesis
+project: test-motor-optim
 method: bayes
 metric:
   name: valid_acc
