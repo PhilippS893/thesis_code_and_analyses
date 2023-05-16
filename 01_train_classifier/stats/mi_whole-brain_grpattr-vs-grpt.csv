@@ -1,0 +1,11 @@
+mi,class,fold,attr_method,contrast
+0.12707116597684642,footleft,3,lrp,grpattr-vs-grpt
+0.06995188087873405,footleft,3,guidedbackprop,grpattr-vs-grpt
+0.04220663419587911,footright,3,lrp,grpattr-vs-grpt
+0.0679515127778414,footright,3,guidedbackprop,grpattr-vs-grpt
+0.09608004828037764,handleft,3,lrp,grpattr-vs-grpt
+0.0670667473587141,handleft,3,guidedbackprop,grpattr-vs-grpt
+0.12629566806117332,handright,3,lrp,grpattr-vs-grpt
+0.06871425038957657,handright,3,guidedbackprop,grpattr-vs-grpt
+0.17594415623588944,tongue,3,lrp,grpattr-vs-grpt
+0.080006953826115,tongue,3,guidedbackprop,grpattr-vs-grpt
