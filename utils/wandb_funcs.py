@@ -20,7 +20,9 @@ def get_wandb_csv(entity: str,
                   group_name: str,
                   keys: list,
                   save_loc: str = ".",
+                  job_name: str = None,
                   overwrite: bool = False) -> pd.DataFrame:
+
     save_name = os.path.join(save_loc, f"{group_name}.csv")
     if os.path.isfile(save_name) and not overwrite:
         print("File already exist. Loading instead")
@@ -29,18 +31,15 @@ def get_wandb_csv(entity: str,
         api = wandb.Api()
 
         # Project is specified by <entity/project-name>
-        runs = api.runs(f"{entity}/{project}", filters={"group_name": {"$regex": f"{group_name}.*"}})
+        runs = api.runs(f"{entity}/{project}", filters={"group_name": {"$regex": f"{group_name}.*"},
+                                                        "jobType": f"{job_name}"})
 
         runs_dict = {}
-        """
-        important_keys = ['group', 'job_type', 'run_name', 'test_accuracy', 'train_acc', 'valid_acc',
-                          'valid_loss', 'best_valid_epoch', 'best_valid_accuracy',
-                          'test_loss', 'train_loss']
-        """
 
         for key in keys:
             runs_dict[key] = []
 
+        print(vars(runs))
         for run in runs:
             for _, key in enumerate(keys):
                 runs_dict[key].extend([run.summary._json_dict[key]]) if key in run.summary._json_dict.keys() else 0

@@ -54,24 +54,27 @@ def reset_wandb_env():
 # os.environ['WANDB_MODE'] = 'offline'
 
 def main(num_folds=10, shuffle_labels=False):
-    class_labels = sorted(["match", "relation", "rest_RELATIONAL"])
+    class_labels = sorted(["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR",
+                           "body", "face", "place", "tool", "rest_WM",
+                           "mental", "rnd", "rest_SOCIAL",
+                           "match", "relation", "rest_RELATIONAL"])
     print(class_labels)
 
-    data_test = NiftiDataset("../v-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
+    data_test = NiftiDataset("../v-smoothed/test", class_labels, 0, device=DEVICE, transform=ToTensor())
 
     # we will split the train dataset into a train (80%) and validation (20%) set.
-    data_train_full = NiftiDataset("../v-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor(),
+    data_train_full = NiftiDataset("../v-smoothed/train", class_labels, 0, device=DEVICE, transform=ToTensor(),
                                    shuffle_labels=shuffle_labels)
 
-    hp = read_config("best_hps.yaml")
+    hp = read_config("hyperparameter.yaml")
 
     input_dims = (91, 109, 91)
 
     # we want one stratified shuffled split
     sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=0.2, random_state=2020)
 
-    job_type_name = "CV-vol-relational-shuffled" if shuffle_labels else "CV-vol-relational-withrest"
-    run_name_prefix = "vol-wm-relational-shuffled" if shuffle_labels else "vol-relational-classifier-withrest"
+    job_type_name = "CV-vol-multi4mm-shuffled" if shuffle_labels else "CV-vol-multi4mm-withrest"
+    run_name_prefix = "vol-multi-shuffled" if shuffle_labels else "vol-multi4mm-withrest"
 
     for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
         reset_wandb_env()

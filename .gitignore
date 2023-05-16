@@ -17,3 +17,7 @@
 /01_train_classifier/stats/.ipynb_checkpoints/
 /thesis.egg-info/
 /04_transfer_learning/figures/.ipynb_checkpoints/
+/02_hp_exploration/models-motor/
+/02_hp_exploration/models-gambling/
+/v-smoothed/
+/00_svm/stats/.ipynb_checkpoints/

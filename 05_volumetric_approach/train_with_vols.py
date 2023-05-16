@@ -17,50 +17,44 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # os.environ['WANDB_MODE'] = 'offline'
 
-classes_of_ds = {
-    'MOTOR': sorted(['handleft', 'handright', 'footleft', 'footright', 'tongue']),
-    'GAMBLING': sorted(['reward', 'loss']),
-    'SOCIAL': sorted(['mental', 'random']),
-    'WM': sorted(['body', 'face', 'place', 'tool']),
-    'RELATIONAL': sorted(['match', 'relation']),
-    'EMOTION': sorted(['emotion', 'neut']),
-    'LANGUAGE': ['story', 'math'],
-}
+
+class_labels = ["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR",
+                "body", "face", "place", "tool", "rest_WM",
+                "match", "relation", "rest_RELATIONAL",
+                "mental", "rnd", "rest_SOCIAL"]
+"""
+class_labels = ["footleft", "footright", "handleft", "handright", "tongue",
+                "body", "face", "place", "tool",
+                "match", "relation",
+                "mental", "rnd"]
+"""
+# class_labels = ["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR"]
+#class_labels = ["body", "face", "place", "tool", "rest_WM"]
 
 
-def train_network(config=None, num_folds=7) -> None:
+def train_network(config=None, num_folds=8, run_splits=1) -> None:
     if config is None:
         config = vars(get_argparse().parse_args())
 
     hps = tools.read_config(config["hyperparameter"])
-    tmp = [value for key, value in classes_of_ds.items()]
-    class_labels = [j for val in tmp for j in val]
 
-    data_train_full = NiftiDataset("../t-maps/train", class_labels, 0, device=DEVICE,
+    data_train_full = NiftiDataset("../v-maps/train", class_labels, 0, device=DEVICE,
                                    transform=tools.ToTensor(), shuffle_labels=config["shuffle_labels"])
 
-    data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE,
+    data_test = NiftiDataset("../v-maps/test", class_labels, 0, device=DEVICE,
                              transform=tools.ToTensor())
 
-    #data_train_full = NiftiDataset("../t-smoothed/train", class_labels, 0, device=DEVICE,
-    #                               transform=tools.ToTensor(), shuffle_labels=config["shuffle_labels"])
-
-    #data_test = NiftiDataset("../t-smoothed/test", class_labels, 0, device=DEVICE,
-    #                         transform=tools.ToTensor())
-
-    # we want a stratified shuffled split
-    # we set the train size here fix to 120 subjects for training and 20 for validation
-    # sss = StratifiedShuffleSplit(n_splits=num_folds, train_size=120 * len(class_labels),
-    #                             test_size=20 * len(class_labels), random_state=config["seed"])
-
     sss = StratifiedKFold(n_splits=num_folds)
+    splits = sss.split(data_train_full.data, data_train_full.labels)
 
-    for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
+    for fold in range(run_splits):
+
+        (idx_train, idx_valid) = next(splits)
 
         this_seed = config["seed"] + fold
         g = set_random_seed(this_seed)
 
-        job_type = f"{config['job_type']}-shuffled-500epochs" if config["shuffle_labels"] else f"{config['job_type']}-real"
+        job_type = f"{config['job_type']}-shuffled" if config["shuffle_labels"] else f"{config['job_type']}-real"
         run_name = f"seed-{config['seed']}_fold-{fold:02d}"
 
         wandb_kwargs = {
@@ -185,7 +179,7 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
     parser.add_argument(
         '--hyperparameter',
         metavar='.yaml',
-        default='hyperparameter.yaml',
+        default='best_hp.yaml',
         type=str,
         help='a path to a .yaml file containing hyperparameter configs (default: hyperparameter.yaml)'
     )
@@ -201,7 +195,7 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
     parser.add_argument(
         '--shuffle_labels',
         metavar='BOOL',
-        default=True,
+        default=False,
         type=bool,
         help="set a random seed for reproducibility (default: 2020)"
     )
@@ -217,7 +211,7 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
     parser.add_argument(
         '--job_type',
         metavar='STR',
-        default="CV-7folds",
+        default="multi-w-rest",
         type=str,
         help="the name of the job (important to group in wandb)"
     )
@@ -225,7 +219,7 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
     parser.add_argument(
         '--wandb_group',
         metavar='STR',
-        default="full-hcp",
+        default="volumes",
         type=str,
         help="group name of the current runs. Important to group in wandb"
     )

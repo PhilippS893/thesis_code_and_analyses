@@ -6,7 +6,7 @@ import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
 from delphi.utils.tools import ToTensor, compute_accuracy, convert_wandb_config, read_config
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedKFold
 from torch.utils.data import DataLoader
 
 from utils.random import set_random_seed
@@ -16,33 +16,17 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 g = set_random_seed(2020)
 
-# class_labels = ["handleft", "handright", "footleft", "footright", "tongue",
-#                "reward", "loss", "mental", "random", "body", "face", "place", "tool",
-#                "match", "relation", "emotion", "neut", "story", "math"]
+class_labels = ["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR",
+                "body", "face", "place", "tool", "rest_WM",
+                "match", "relation", "rest_RELATIONAL",
+                "mental", "rnd", "rest_SOCIAL"]
 
-# class_labels = ["handleft", "handright", "footleft", "footright", "tongue"]
-
-classes_of_ds = {
-    'MOTOR': sorted(['handleft', 'handright', 'footleft', 'footright', 'tongue']),
-    'GAMBLING': sorted(['reward', 'loss']),
-    'SOCIAL': sorted(['mental', 'random']),
-    'WM': sorted(['body', 'face', 'place', 'tool']),
-    'RELATIONAL': sorted(['match', 'relation']),
-    'EMOTION': sorted(['emotion', 'neut']),
-    'LANGUAGE': ['story', 'math'],
-}
-
-TASK = "RELATIONAL"
-class_labels = classes_of_ds[TASK]
-data_test = NiftiDataset("../t-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
+data_test = NiftiDataset("../v-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
 
 # we will split the train dataset into a train (80%) and validation (20%) set.
-data_train_full = NiftiDataset("../t-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor())
+data_train_full = NiftiDataset("../v-maps/train", class_labels, 0, device=DEVICE, transform=ToTensor())
 
-# we want one stratified shuffled split
-# doing it this way should ensure, that we train each run with the same
-# data in the training and validation set.
-sss = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=2020)
+sss = StratifiedKFold(n_splits=8)
 idx_train, idx_valid = next(sss.split(data_train_full.data, data_train_full.labels))
 
 data_train = torch.utils.data.Subset(data_train_full, idx_train)
@@ -50,7 +34,6 @@ data_valid = torch.utils.data.Subset(data_train_full, idx_valid)
 
 
 def train_net(model, config, save_name):
-
     dl_test = DataLoader(data_test, batch_size=config.batch_size, shuffle=True, generator=g)
     dl_train = DataLoader(data_train, batch_size=config.batch_size, shuffle=True, generator=g)
     dl_valid = DataLoader(data_valid, batch_size=config.batch_size, shuffle=True, generator=g)
@@ -139,8 +122,7 @@ def train_net(model, config, save_name):
 
 # define the training function with the wandb init
 def main():
-    with wandb.init(project="HCP-TL", group="hp-optimization", job_type=TASK.lower()) as run:
-
+    with wandb.init(project="thesis", group="volumes", job_type="hp-optim") as run:
         converted_config = convert_wandb_config(wandb.config, BrainStateClassifier3d._REQUIRED_PARAMS)
 
         model = BrainStateClassifier3d((91, 109, 91), len(class_labels), converted_config)
@@ -165,7 +147,7 @@ def main():
             run.config.weight_decay
         )
 
-        save_name = os.path.join(f"models-{TASK.lower()}", run_name)
+        save_name = os.path.join(f"models-hp-optim", run_name)
         wandb.run.name = run_name
 
         # now train the netwok

@@ -1,10 +1,10 @@
 program: hp_exploration.py
-group: task-hp-optimization
-entity: ml4ni
-project: HCP-TL
+group: hp-optimization
+entity: philis893
+project: thesis
 method: bayes
 metric:
-  name: valid_acc
+  name: test_accuracy
   goal: maximize
 parameters:
   channels1:

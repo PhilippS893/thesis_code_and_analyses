@@ -6,7 +6,7 @@ import wandb
 from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
 from delphi.utils.tools import ToTensor, compute_accuracy, read_config
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedShuffleSplit, StratifiedKFold
 from torch.utils.data import DataLoader
 
 from utils.random import set_random_seed
@@ -36,11 +36,11 @@ def main(num_folds=10, shuffle_labels=False):
 
     input_dims = (91, 109, 91)
 
-    # we want one stratified shuffled split
-    sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=0.2, random_state=2020)
+    # we want one stratified split
+    # sss = StratifiedShuffleSplit(n_splits=num_folds, test_size=0.2, random_state=2020)
+    sss = StratifiedKFold(n_splits=num_folds)
 
-    job_type_name = "motor-shuffled-500epochs"  # "CV-motor-shuffled" if shuffle_labels else "CV-motor"
-    run_name_prefix = "motor-classifier-shuffled" if shuffle_labels else "motor-classifier"
+    job_type_name = f"CV-{num_folds}folds-shuffled-500epochs" if shuffle_labels else f"CV-{num_folds}folds"
 
     for fold, (idx_train, idx_valid) in enumerate(sss.split(data_train_full.data, data_train_full.labels)):
         reset_wandb_env()
@@ -154,5 +154,4 @@ def main(num_folds=10, shuffle_labels=False):
 
 
 if __name__ == '__main__':
-    # main(num_folds=10, shuffle_labels=False)
-    main(num_folds=10, shuffle_labels=True)
+    main(num_folds=7, shuffle_labels=True)

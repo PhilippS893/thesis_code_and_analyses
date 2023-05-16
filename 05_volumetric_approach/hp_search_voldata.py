@@ -8,6 +8,8 @@ from delphi.networks.ConvNets import BrainStateClassifier3d
 from delphi.utils.datasets import NiftiDataset
 from delphi.utils.tools import convert_wandb_config, ToTensor, compute_accuracy
 from torch.utils.data import DataLoader
+from sklearn.model_selection import StratifiedShuffleSplit, StratifiedKFold
+
 
 from utils.random import set_random_seed
 from utils.wandb_funcs import wandb_plots
@@ -31,14 +33,17 @@ def main():
     # hp = read_config("default_vals.yaml")
 
     # class_labels = sorted([os.path.split(x)[-1] for x in glob.glob(os.path.join(settings.train_dir, "*"))])
-    class_labels = sorted(["handleft", "handright", "footleft", "footright", "tongue"])
+    class_labels = ["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR",
+                    "body", "face", "place", "tool", "rest_WM",
+                    "match", "relation", "rest_RELATIONAL",
+                    "mental", "rnd", "rest_SOCIAL"]
     # initialize wandb
     wandb.init(entity=os.environ['WANDB_ENTITY'], project=os.environ['WANDB_PROJECT'],
                group="volume-input", job_type="02_hp_exploration", allow_val_change=True)
     config = wandb.config
 
     t_stamp = time.time()
-    save_name = os.path.join("models", f"motor-wo-rest-{t_stamp}")
+    save_name = os.path.join("models", f"multiclass-{t_stamp}")
     wandb.run.name = f"motor-wo-rest-{t_stamp}"
 
     # convert the wandb config into a working format

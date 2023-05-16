@@ -9,4 +9,5 @@ channels5: 64
 lin_neurons1: 256
 lin_neurons2: 256
 learning_rate: 0.0001
+weight_decay: 0.0001
 epochs: 60

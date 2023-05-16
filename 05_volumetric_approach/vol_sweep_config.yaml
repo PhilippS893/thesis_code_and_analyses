@@ -2,9 +2,10 @@ program: hp_search_voldata.py
 entity: philis893
 name: volume-exploration-sweep
 project: thesis
-method: random
+method: bayes
 metric:
   name: valid_acc
+  goal: maximize
 parameters:
   channels1:
     value: 1
@@ -27,6 +28,8 @@ parameters:
   dropout:
     values: [.3, .4, .5, .6, .7]
   learning_rate:
+    values: [0.00001, 0.0001, 0.001]
+  weight_decay:
     values: [0.00001, 0.0001, 0.001]
   epochs:
     value: 60
