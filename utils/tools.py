@@ -149,6 +149,7 @@ def compute_mi(
                                                            discrete_features=False, random_state=seed)
 
                     elif contrast == allowed_contrasts[2]:
+                        # subattr-vs-grpt
 
                         X = apply_mask(f"{method}/real/fold-{fold:02d}/{lbl}.nii.gz", msk)
                         mi = np.zeros(len(X))
