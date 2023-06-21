@@ -1,0 +1,11 @@
+n_samples,acc,condition
+160,0.8583333333333333,motor-w-rest
+160,0.81,motor-wo-rest
+160,0.45,wm-w-rest
+160,0.35,wm-wo-rest
+160,0.6333333333333333,relation-w-rest
+160,0.525,relation-wo-rest
+160,0.7833333333333333,social-w-rest
+160,0.775,social-wo-rest
+160,0.47058823529411764,multi-w-rest
+160,0.47692307692307695,multi-wo-rest

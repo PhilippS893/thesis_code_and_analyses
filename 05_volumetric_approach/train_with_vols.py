@@ -17,19 +17,23 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # os.environ['WANDB_MODE'] = 'offline'
 
-
+"""
 class_labels = ["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR",
                 "body", "face", "place", "tool", "rest_WM",
                 "match", "relation", "rest_RELATIONAL",
                 "mental", "rnd", "rest_SOCIAL"]
+"""
 """
 class_labels = ["footleft", "footright", "handleft", "handright", "tongue",
                 "body", "face", "place", "tool",
                 "match", "relation",
                 "mental", "rnd"]
 """
-# class_labels = ["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR"]
-#class_labels = ["body", "face", "place", "tool", "rest_WM"]
+
+# class_labels = ["footleft", "footright", "handleft", "handright", "tongue"]
+class_labels = ["body", "face", "place", "tool"]
+# class_labels = ["mental", "rnd"]
+# class_labels = ["match", "relation"]
 
 
 def train_network(config=None, num_folds=8, run_splits=1) -> None:
@@ -211,7 +215,7 @@ def get_argparse(parser: argparse.ArgumentParser = None) -> argparse.ArgumentPar
     parser.add_argument(
         '--job_type',
         metavar='STR',
-        default="multi-w-rest",
+        default="wm-wo-rest",
         type=str,
         help="the name of the job (important to group in wandb)"
     )

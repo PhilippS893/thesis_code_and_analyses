@@ -16,10 +16,17 @@ DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 g = set_random_seed(2020)
 
+"""
 class_labels = ["footleft", "footright", "handleft", "handright", "tongue", "rest_MOTOR",
                 "body", "face", "place", "tool", "rest_WM",
                 "match", "relation", "rest_RELATIONAL",
                 "mental", "rnd", "rest_SOCIAL"]
+"""
+class_labels = ["footleft", "footright", "handleft", "handright", "tongue",
+                "body", "face", "place", "tool",
+                "match", "relation",
+                "mental", "rnd"]
+
 
 data_test = NiftiDataset("../v-maps/test", class_labels, 0, device=DEVICE, transform=ToTensor())
 
@@ -122,7 +129,7 @@ def train_net(model, config, save_name):
 
 # define the training function with the wandb init
 def main():
-    with wandb.init(project="thesis", group="volumes", job_type="hp-optim") as run:
+    with wandb.init(project="thesis", group="volumes", job_type="hp-optim-wo-rest") as run:
         converted_config = convert_wandb_config(wandb.config, BrainStateClassifier3d._REQUIRED_PARAMS)
 
         model = BrainStateClassifier3d((91, 109, 91), len(class_labels), converted_config)
